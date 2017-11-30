@@ -1,6 +1,10 @@
 # Prerequisites
 *.d
 
+*~
+*.swp
+*.swo
+
 # Compiled Object files
 *.slo
 *.lo
@@ -30,3 +34,29 @@
 *.exe
 *.out
 *.app
+
+#Ignore the build and lib dirs
+build
+lib/*
+
+# # Ignore any executables
+ bin/*
+
+# # Ignore Mac specific files
+.DS_Store
+
+
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+#Auto-generated tag files
+tags

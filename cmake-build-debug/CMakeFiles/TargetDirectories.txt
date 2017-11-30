@@ -1,3 +1,0 @@
-/goinfre/mmayibo/projects/expertsystem/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/goinfre/mmayibo/projects/expertsystem/cmake-build-debug/CMakeFiles/edit_cache.dir
-/goinfre/mmayibo/projects/expertsystem/cmake-build-debug/CMakeFiles/expertsystem.dir
