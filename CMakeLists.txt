@@ -11,12 +11,8 @@ add_executable(expertsystem ${SOURCE_FILES})
 target_include_directories(expertsystem PRIVATE include)
 
 # add the CMakeFile that defines catch
-add_subdirectory(lib/catch)
-
 
 # Add an library for the example classes
-
-#add_library(example_unit_test Reverse.cpp Palindrome.cpp )
 
 #############################################
 # Unit tests
@@ -28,5 +24,4 @@ enable_testing()
 add_executable(unit_tests src/test/unit_tests.cpp)
 target_include_directories(unit_tests PRIVATE include)
 
-target_link_libraries(unit_tests  Catch::Test)
 add_test(test_all unit_tests)
