@@ -26,4 +26,4 @@ add_executable(unit_tests src/test/unit_tests.cpp)
 target_include_directories(unit_tests PRIVATE inc)
 
 target_link_libraries(unit_tests expert_system_classes)
-add_test(test_all unit_tests)
+add_test(test_all ../bin/unit_tests)

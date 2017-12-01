@@ -50,7 +50,7 @@ TEST_CASE("testing rules class")
 }
 TEST_CASE("Query class")
 {
-	Query query("AB");
+	Query query("B");
 
 	REQUIRE(query.getQuery() == "AB");
 
