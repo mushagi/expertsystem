@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../inc/expertsystem.hpp
+iostream
+-
+string
+-
+stdio.h
+-
+string.h
+-
+algorithm
+-
+vector
+-
+../src/main/models/Rules.h
+../src/main/models/Rules.h
+../src/main/models/Node.h
+../src/main/models/Node.h
+../src/main/models/Query.h
+../src/main/models/Query.h
+
+../src/main/models/Node.h
+expertsystem.hpp
+../src/main/models/expertsystem.hpp
+
+../src/main/models/Query.h
+expertsystem.hpp
+../src/main/models/expertsystem.hpp
+
+../src/main/models/Rules.h
+expertsystem.hpp
+../src/main/models/expertsystem.hpp
+
+/goinfre/mmayibo/projects/expertsystem/src/main/main.cpp
+iostream
+-
+expertsystem.hpp
+/goinfre/mmayibo/projects/expertsystem/src/main/expertsystem.hpp
+

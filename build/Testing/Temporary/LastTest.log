@@ -1,0 +1,38 @@
+Start testing: Dec 02 09:44 SAST
+----------------------------------------------------------
+1/1 Testing: test_all
+1/1 Test: test_all
+Command: "/goinfre/mmayibo/projects/expertsystem/bin/unit_tests"
+Directory: /goinfre/mmayibo/projects/expertsystem/build
+"test_all" start time: Dec 02 09:44 SAST
+Output:
+----------------------------------------------------------
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+unit_tests is a Catch v2.0.1 host application.
+Run with -? for options
+
+-------------------------------------------------------------------------------
+Query class
+-------------------------------------------------------------------------------
+/goinfre/mmayibo/projects/expertsystem/src/test/unit_tests.cpp:51
+...............................................................................
+
+/goinfre/mmayibo/projects/expertsystem/src/test/unit_tests.cpp:55: FAILED:
+  REQUIRE( query.getQuery() == "?AB" )
+with expansion:
+  "?B" == "?AB"
+
+===============================================================================
+test cases: 4 | 3 passed | 1 failed
+assertions: 9 | 8 passed | 1 failed
+
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"test_all" end time: Dec 02 09:44 SAST
+"test_all" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 02 09:44 SAST
