@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/goinfre/mmayibo/projects/expertsystem/src/main/engine/inference_engine.cpp" "/goinfre/mmayibo/projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/engine/inference_engine.cpp.o"
-  "/goinfre/mmayibo/projects/expertsystem/src/main/utils/tools.cpp" "/goinfre/mmayibo/projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o"
+  "/home/vador/projects/expertsystem/src/main/engine/inference_engine.cpp" "/home/vador/projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/engine/inference_engine.cpp.o"
+  "/home/vador/projects/expertsystem/src/main/utils/tools.cpp" "/home/vador/projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

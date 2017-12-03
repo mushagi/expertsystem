@@ -8,7 +8,12 @@ class Node{
 	public  : Node(char symbol){
 				  this->symbol = symbol;
 			  }
-	public : void addToListOfIndex(int index){
+
+	public  : Node(char symbol, string reason){
+				  this->symbol = symbol;
+          this->reason = reason;
+			  }
+  public : void addToListOfIndex(int index){
 				 listOfIndex.push_back(index);
 			 }
 	public : char getSymbol(){

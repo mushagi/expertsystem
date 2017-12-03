@@ -21,6 +21,6 @@
 #include "../src/main/models/Rules.h"
 #include "../src/main/models/Node.h"
 #include "../src/main/models/Query.h"
-int validate_query(vector<Node> nodes, vector<Rule> rules, Query query);
+//int validate_query(vector<Node> nodes, vector<Rule> rules, Query query);
 string eraseAllWhiteSpaces(string str);
 #endif

@@ -42,30 +42,39 @@ TEST_CASE("testing rules class")
 {
 	Rule *rule;
 	rule = new Rule("A+B+C=>D");
-	
 
 	REQUIRE(rule->toString() == "A+B+C=>D");
 
 }
 TEST_CASE("Query class")
 {
+
 	SECTION("empty query")
 	{
-		Query query("?     ");
+    vector<Node> allNodes1;
+		Query query("?     ", allNodes1);
 		REQUIRE(query.getNodes().size() == 0);
 		REQUIRE(query.getQuery() == "?");
 	}
 
 	SECTION("add nodes to query list")
 	{
-		Query query1("  ?abc ");
+    vector<Node> allNodes;
+		Query query1("  ?abc ", allNodes);
 		REQUIRE(query1.getQuery() == "?abc");
-		/*
 		REQUIRE(query1.getNodes().size() == 3);
-		REQUIRE(query1.getNodes().begin()->getSymbol() == 'a');
-		REQUIRE((query1.getNodes().begin() + 1)->getSymbol() == 'b');
-		REQUIRE((query1.getNodes().begin() + 2)->getSymbol() == 'c');
-	*/
+
+
+    vector<Node> allNodes2;
+    Node nodeTest('w');
+    nodeTest.setReason("duh");
+    allNodes2.push_back(nodeTest);
+		Query query2("  ?wp ", allNodes2);
+		REQUIRE(query2.getQuery() == "?wp");
+		REQUIRE(query2.getNodes().size() == 2);
+    REQUIRE(query2.getNodes().front().getReason() == "duh");
+    REQUIRE(query2.getNodes().back().getReason() == "Initialised as a query node");
+	
 	}
 
 }

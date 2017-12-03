@@ -1,3 +1,0 @@
-test_all 0 0
----
-test_all

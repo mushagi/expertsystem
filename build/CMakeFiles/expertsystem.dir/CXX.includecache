@@ -31,16 +31,16 @@ expertsystem.hpp
 ../src/main/models/expertsystem.hpp
 
 ../src/main/models/Query.h
-expertsystem.hpp
-../src/main/models/expertsystem.hpp
+../../../inc/expertsystem.hpp
+../inc/expertsystem.hpp
 
 ../src/main/models/Rules.h
 expertsystem.hpp
 ../src/main/models/expertsystem.hpp
 
-/goinfre/mmayibo/projects/expertsystem/src/main/main.cpp
+/home/vador/projects/expertsystem/src/main/main.cpp
 iostream
 -
 expertsystem.hpp
-/goinfre/mmayibo/projects/expertsystem/src/main/expertsystem.hpp
+/home/vador/projects/expertsystem/src/main/expertsystem.hpp
 
