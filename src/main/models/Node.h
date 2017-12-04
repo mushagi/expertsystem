@@ -1,5 +1,5 @@
 #include "expertsystem.hpp"
-
+using namespace std;
 class Node{
 	private : vector<int> listOfIndex;
 	private : char symbol;
@@ -7,6 +7,7 @@ class Node{
 	private : string reason;
 	public  : Node(char symbol){
 				  this->symbol = symbol;
+				  this->status = 0;
 			  }
 
 	public  : Node(char symbol, string reason){

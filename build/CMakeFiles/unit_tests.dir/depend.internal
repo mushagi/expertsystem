@@ -4,7 +4,8 @@
 CMakeFiles/unit_tests.dir/src/test/unit_tests.cpp.o
  ../inc/catch.hpp
  ../inc/expertsystem.hpp
+ ../src/main/engine/InferenceEngine.h
  ../src/main/models/Node.h
  ../src/main/models/Query.h
  ../src/main/models/Rules.h
- /home/vador/projects/expertsystem/src/test/unit_tests.cpp
+ /goinfre/mmayibo/projects/expertsystem/src/test/unit_tests.cpp

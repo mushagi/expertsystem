@@ -359,24 +359,28 @@ algorithm
 -
 
 ../inc/expertsystem.hpp
-iostream
+algorithm
 -
 string
 -
-stdio.h
--
-string.h
--
-algorithm
--
 vector
 -
-../src/main/models/Rules.h
-../src/main/models/Rules.h
+iostream
+-
+stdio.h
+-
 ../src/main/models/Node.h
 ../src/main/models/Node.h
+../src/main/models/Rules.h
+../src/main/models/Rules.h
 ../src/main/models/Query.h
 ../src/main/models/Query.h
+../src/main/engine/InferenceEngine.h
+../src/main/engine/InferenceEngine.h
+
+../src/main/engine/InferenceEngine.h
+expertsystem.hpp
+../src/main/engine/expertsystem.hpp
 
 ../src/main/models/Node.h
 expertsystem.hpp
@@ -389,12 +393,20 @@ expertsystem.hpp
 ../src/main/models/Rules.h
 expertsystem.hpp
 ../src/main/models/expertsystem.hpp
+algorithm
+-
+iostream
+-
+string
+-
+vector
+-
 
-/home/vador/projects/expertsystem/src/test/unit_tests.cpp
+/goinfre/mmayibo/projects/expertsystem/src/test/unit_tests.cpp
 string
 -
 catch.hpp
-/home/vador/projects/expertsystem/src/test/catch.hpp
+/goinfre/mmayibo/projects/expertsystem/src/test/catch.hpp
 expertsystem.hpp
-/home/vador/projects/expertsystem/src/test/expertsystem.hpp
+/goinfre/mmayibo/projects/expertsystem/src/test/expertsystem.hpp
 

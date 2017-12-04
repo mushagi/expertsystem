@@ -14,7 +14,7 @@ target_include_directories(expertsystem PRIVATE inc)
 # add the CMakeFile that defines catch
 
 # Add an library for the example classes
-add_library(expert_system_classes src/main/engine/inference_engine.cpp src/main/utils/tools.cpp) 
+add_library(expert_system_classes src/main/utils/tools.cpp) 
 #############################################
 #Unit tests
 

@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/expert_system_classes.dir/src/main/engine/inference_engine.cpp.o"
   "CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o"
   "../lib/libexpert_system_classes.pdb"
   "../lib/libexpert_system_classes.a"
