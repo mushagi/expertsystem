@@ -38,7 +38,8 @@ TEST_CASE( "testing node class" ){
 
 TEST_CASE("testing rules class")
 {
-	Rule rule("A+B+C=>D");
+	vector <Node*> nodes;
+	Rule rule("A+B+C=>D", &nodes);
 
 	REQUIRE(rule.toString() == "A+B+C=>D");
 
@@ -55,7 +56,7 @@ TEST_CASE("testing rules class")
 
 	SECTION("add nodes while reading a rule")
 	{
-		vector<Node> nodes;
+		vector<Node*> nodes;
 		Rule rule1("A+B+C", &nodes);
 		REQUIRE(nodes.size() == 3);
 	}
@@ -64,35 +65,34 @@ TEST_CASE("testing rules class")
 TEST_CASE("Query class")
 {
 
+	/*
 	SECTION("empty query")
 	{
-		vector<Node> allNodes1;
-		Query query("?     ", allNodes1);
+		vector<Node*> nodes;
+		vector<Rule> rules;
+		rules.push_back(Rule("A+B+C=>D", &nodes));
+		Query query("?     ", &nodes);
 		REQUIRE(query.getNodes().size() == 0);
 		REQUIRE(query.getQuery() == "?");
 	}
-
+*/
 	SECTION("add nodes to query list")
 	{
-		vector<Node> allNodes;
-		Query query1("  ?abc ", allNodes);
-		REQUIRE(query1.getQuery() == "?abc");
-		REQUIRE(query1.getNodes().size() == 3);
+		vector<Node*>nodes;
 
-		vector<Node> allNodes2;
-		Node nodeTest('w');
-		nodeTest.setReason("duh");
-		allNodes2.push_back(nodeTest);
-		Query query2("  ?wp ", allNodes2);
-		REQUIRE(query2.getQuery() == "?wp");
-		REQUIRE(query2.getNodes().size() == 2);
-		REQUIRE(query2.getNodes().front().getReason() == "duh");
-		REQUIRE(query2.getNodes().back().getReason() == "Initialised as a query node");
-
-	}
+		vector<Rule> rules;
+		rules.push_back(Rule("A+B+C=>D", &nodes));
+		Query query("?AB", &nodes);
+		REQUIRE(query.getQuery() == "?AB");
+		REQUIRE(query.getNodes().front()->getSymbol() == 'A');
+		REQUIRE(query.getNodes().front()->getSymbol() == nodes.front()->getSymbol());
+		REQUIRE(query.getNodes().front() == nodes.front());
+		REQUIRE(query.getNodes().front()->getReason() == "changed");
+		REQUIRE(nodes.front()->getReason() == "changed");
+	}	
 
 }
-
+/*
 TEST_CASE("testing inference engine")
 {
 	SECTION("testing initial updated facts"){
@@ -108,7 +108,6 @@ TEST_CASE("testing inference engine")
 		REQUIRE(nodes.back().getSymbol() == 'B');
 		REQUIRE(nodes.back().getStatus() == 0);
 	}
-	/*
 	SECTION("simple inference test"){
 		
 		vector<Node> nodes;
@@ -118,5 +117,8 @@ TEST_CASE("testing inference engine")
 		string facts = "=A";
 		InferenceEngine engine(rules, nodes, &query, facts);
 	//	REQUIRE(query.getNodes().front().getStatus() == 0);
-	}*/
+	}
+
 }
+
+*/

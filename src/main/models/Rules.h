@@ -9,13 +9,13 @@ string eraseAllWhiteSpaces(string str);
 
 class Rule{
 	public : string rule;
-	private: vector<Node> * nodes;
+	private: vector<Node*> *nodes;
 	public : Rule(string rule){
 				 this->rule = rule;
 				 sanitiseRule();
 			 }
 
-	public : Rule(string rule, vector <Node> *nodes){
+	public : Rule(string rule, vector <Node*> *nodes){
 				 this->rule = rule;
 				 this->nodes= nodes;
 				 sanitiseRule();
@@ -35,13 +35,13 @@ class Rule{
 	private: void initNodes(){
 				 for (char &c : rule){
 					 if(isalpha(c) && !isExistingNode(c)){
-						 nodes->push_back(Node(c));
+						 nodes->push_back(new Node(c));
 					 }
 				 }
 			 }
 	private : int isExistingNode(char c){
-				  for (Node node : *nodes)
-					  if(node.getSymbol() == c)
+				  for (Node *node : *nodes)
+					  if(node->getSymbol() == c)
 						  return (1);
 				  return (0);
 			  }
