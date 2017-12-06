@@ -18,6 +18,8 @@
 #include <iostream>
 #include <stdio.h>
 #include "../src/main/models/Node.h"
+#include "../src/main/models/Nodes.h"
+#include "../src/main/models/Rule.h"
 #include "../src/main/models/Rules.h"
 #include "../src/main/models/Query.h"
 #include "../src/main/engine/InferenceEngine.h"

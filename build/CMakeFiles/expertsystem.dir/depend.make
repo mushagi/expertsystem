@@ -4,7 +4,9 @@
 CMakeFiles/expertsystem.dir/src/main/main.cpp.o: ../inc/expertsystem.hpp
 CMakeFiles/expertsystem.dir/src/main/main.cpp.o: ../src/main/engine/InferenceEngine.h
 CMakeFiles/expertsystem.dir/src/main/main.cpp.o: ../src/main/models/Node.h
+CMakeFiles/expertsystem.dir/src/main/main.cpp.o: ../src/main/models/Nodes.h
 CMakeFiles/expertsystem.dir/src/main/main.cpp.o: ../src/main/models/Query.h
+CMakeFiles/expertsystem.dir/src/main/main.cpp.o: ../src/main/models/Rule.h
 CMakeFiles/expertsystem.dir/src/main/main.cpp.o: ../src/main/models/Rules.h
 CMakeFiles/expertsystem.dir/src/main/main.cpp.o: ../src/main/main.cpp
 

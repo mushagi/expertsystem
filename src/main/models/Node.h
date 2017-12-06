@@ -1,7 +1,11 @@
+#ifndef NODE_H
+#define NODE_H
 #include "expertsystem.hpp"
+#include "Rules.h"
+
 using namespace std;
 class Node{
-	private : vector<int> listOfIndex;
+	private : vector<Rule*> listOfIndex;
 	private : char symbol;
 	private : int status;
 	private : string reason;
@@ -20,7 +24,7 @@ class Node{
 	public : char getSymbol(){
 				 return (symbol);
 			 }
-	public : vector<int> getListOfIndex(){
+	public : vector<Rule *> getListOfIndex(){
 				 return (listOfIndex);
 			 }
 	public: void setReason(string reason){
@@ -35,4 +39,10 @@ class Node{
 	public : string getReason(){
 				 return (reason);
 			 }
+  public : void addRule(Rule *rule)
+           {
+             listOfIndex.push_back(rule);
+           }
 };
+
+#endif

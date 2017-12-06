@@ -45,19 +45,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /goinfre/mmayibo/.brew/Cellar/cmake/3.10.0/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /goinfre/mmayibo/.brew/Cellar/cmake/3.10.0/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /goinfre/mmayibo/projects/expertsystem
+CMAKE_SOURCE_DIR = /home/vador/projects/expertsystem
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /goinfre/mmayibo/projects/expertsystem/build
+CMAKE_BINARY_DIR = /home/vador/projects/expertsystem/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/unit_tests.dir
@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /goinfre/mmayibo/projects/expertsystem/build
 CMakeFiles/unit_tests.dir/all: CMakeFiles/expert_system_classes.dir/all
 	$(MAKE) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/depend
 	$(MAKE) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/goinfre/mmayibo/projects/expertsystem/build/CMakeFiles --progress-num=5,6 "Built target unit_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vador/projects/expertsystem/build/CMakeFiles --progress-num=5,6 "Built target unit_tests"
 .PHONY : CMakeFiles/unit_tests.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/unit_tests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/unit_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /goinfre/mmayibo/projects/expertsystem/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vador/projects/expertsystem/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/unit_tests.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /goinfre/mmayibo/projects/expertsystem/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vador/projects/expertsystem/build/CMakeFiles 0
 .PHONY : CMakeFiles/unit_tests.dir/rule
 
 # Convenience name for target.
@@ -97,50 +97,13 @@ clean: CMakeFiles/unit_tests.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/expert_system_classes.dir
-
-# All Build rule for target.
-CMakeFiles/expert_system_classes.dir/all:
-	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/depend
-	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/goinfre/mmayibo/projects/expertsystem/build/CMakeFiles --progress-num=1,2 "Built target expert_system_classes"
-.PHONY : CMakeFiles/expert_system_classes.dir/all
-
-# Include target in all.
-all: CMakeFiles/expert_system_classes.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/expert_system_classes.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /goinfre/mmayibo/projects/expertsystem/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/expert_system_classes.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /goinfre/mmayibo/projects/expertsystem/build/CMakeFiles 0
-.PHONY : CMakeFiles/expert_system_classes.dir/rule
-
-# Convenience name for target.
-expert_system_classes: CMakeFiles/expert_system_classes.dir/rule
-
-.PHONY : expert_system_classes
-
-# clean rule for target.
-CMakeFiles/expert_system_classes.dir/clean:
-	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/clean
-.PHONY : CMakeFiles/expert_system_classes.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/expert_system_classes.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/expertsystem.dir
 
 # All Build rule for target.
 CMakeFiles/expertsystem.dir/all:
 	$(MAKE) -f CMakeFiles/expertsystem.dir/build.make CMakeFiles/expertsystem.dir/depend
 	$(MAKE) -f CMakeFiles/expertsystem.dir/build.make CMakeFiles/expertsystem.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/goinfre/mmayibo/projects/expertsystem/build/CMakeFiles --progress-num=3,4 "Built target expertsystem"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vador/projects/expertsystem/build/CMakeFiles --progress-num=3,4 "Built target expertsystem"
 .PHONY : CMakeFiles/expertsystem.dir/all
 
 # Include target in all.
@@ -150,9 +113,9 @@ all: CMakeFiles/expertsystem.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/expertsystem.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /goinfre/mmayibo/projects/expertsystem/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vador/projects/expertsystem/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/expertsystem.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /goinfre/mmayibo/projects/expertsystem/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vador/projects/expertsystem/build/CMakeFiles 0
 .PHONY : CMakeFiles/expertsystem.dir/rule
 
 # Convenience name for target.
@@ -167,6 +130,43 @@ CMakeFiles/expertsystem.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/expertsystem.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/expert_system_classes.dir
+
+# All Build rule for target.
+CMakeFiles/expert_system_classes.dir/all:
+	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/depend
+	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vador/projects/expertsystem/build/CMakeFiles --progress-num=1,2 "Built target expert_system_classes"
+.PHONY : CMakeFiles/expert_system_classes.dir/all
+
+# Include target in all.
+all: CMakeFiles/expert_system_classes.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/expert_system_classes.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vador/projects/expertsystem/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/expert_system_classes.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vador/projects/expertsystem/build/CMakeFiles 0
+.PHONY : CMakeFiles/expert_system_classes.dir/rule
+
+# Convenience name for target.
+expert_system_classes: CMakeFiles/expert_system_classes.dir/rule
+
+.PHONY : expert_system_classes
+
+# clean rule for target.
+CMakeFiles/expert_system_classes.dir/clean:
+	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/clean
+.PHONY : CMakeFiles/expert_system_classes.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/expert_system_classes.dir/clean
 
 .PHONY : clean
 

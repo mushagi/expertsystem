@@ -19,6 +19,10 @@ stdio.h
 -
 ../src/main/models/Node.h
 ../src/main/models/Node.h
+../src/main/models/Nodes.h
+../src/main/models/Nodes.h
+../src/main/models/Rule.h
+../src/main/models/Rule.h
 ../src/main/models/Rules.h
 ../src/main/models/Rules.h
 ../src/main/models/Query.h
@@ -33,14 +37,20 @@ expertsystem.hpp
 ../src/main/models/Node.h
 expertsystem.hpp
 ../src/main/models/expertsystem.hpp
+Rules.h
+../src/main/models/Rules.h
+
+../src/main/models/Nodes.h
+expertsystem.hpp
+../src/main/models/expertsystem.hpp
+Node.h
+../src/main/models/Node.h
 
 ../src/main/models/Query.h
 ../../../inc/expertsystem.hpp
 ../inc/expertsystem.hpp
 
-../src/main/models/Rules.h
-expertsystem.hpp
-../src/main/models/expertsystem.hpp
+../src/main/models/Rule.h
 algorithm
 -
 iostream
@@ -49,10 +59,20 @@ string
 -
 vector
 -
-
-/goinfre/mmayibo/projects/expertsystem/src/main/utils/tools.cpp
 expertsystem.hpp
-/goinfre/mmayibo/projects/expertsystem/src/main/utils/expertsystem.hpp
+../src/main/models/expertsystem.hpp
+Nodes.h
+../src/main/models/Nodes.h
+
+../src/main/models/Rules.h
+Rule.h
+../src/main/models/Rule.h
+expertsystem.hpp
+../src/main/models/expertsystem.hpp
+
+/home/vador/projects/expertsystem/src/main/utils/tools.cpp
+expertsystem.hpp
+/home/vador/projects/expertsystem/src/main/utils/expertsystem.hpp
 algorithm
 -
 
