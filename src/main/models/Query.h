@@ -5,7 +5,6 @@ class Query{
 	private:string query;
 	private:vector<Node*> nodes;
 	private : vector<char> querySymbols;
-
 	public : Query(string query, vector<Node*> *allNodes){
 				 this->query = query;
 				 init(allNodes);
@@ -39,7 +38,14 @@ class Query{
 			  }
 
 	private: void updateQueryNodes(vector <Node*> *allNodes){
-				 nodes.push_back(allNodes->front());
-				 allNodes->front()->setReason("changed");
+				 for (char c : querySymbols){
+					 for (Node *node : *allNodes) {
+						 if (node->getSymbol() == c)
+						 {
+							 nodes.push_back(node);
+							 allNodes->front()->setReason("changed");
+						 }
+					 }
+				 }
 			 }
 };

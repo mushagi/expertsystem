@@ -9,10 +9,13 @@ string eraseAllWhiteSpaces(string str);
 
 class Rule{
 	public : string rule;
+	private : string rightSide;
+	private: string leftSide;
 	private: vector<Node*> *nodes;
 	public : Rule(string rule){
 				 this->rule = rule;
 				 sanitiseRule();
+				 initSides();
 			 }
 
 	public : Rule(string rule, vector <Node*> *nodes){
@@ -20,9 +23,14 @@ class Rule{
 				 this->nodes= nodes;
 				 sanitiseRule();
 				 initNodes();
+				 initSides();
 			 }
 	public : string toString() {
 				 return (rule);
+			 }
+	private : void initSides(){
+				  leftSide = rule.substr(0, rule.find('='));
+				  rightSide = rule.substr(rule.find('>') + 1);
 			 }
 	private: void sanitiseRule()
 			 {
@@ -45,4 +53,10 @@ class Rule{
 						  return (1);
 				  return (0);
 			  }
+	public : string getLeftSide(){
+				 return (leftSide);
+			 }
+	public : string getRightSide(){
+				 return (rightSide);
+			 }
 };

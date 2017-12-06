@@ -42,7 +42,6 @@ TEST_CASE("testing rules class")
 	Rule rule("A+B+C=>D", &nodes);
 
 	REQUIRE(rule.toString() == "A+B+C=>D");
-
 	SECTION("Complex rule")
 	{
 		Rule ruleComplex(" A + B + D             => G ");
@@ -57,15 +56,20 @@ TEST_CASE("testing rules class")
 	SECTION("add nodes while reading a rule")
 	{
 		vector<Node*> nodes;
-		Rule rule1("A+B+C", &nodes);
-		REQUIRE(nodes.size() == 3);
+		Rule rule1("A+B+C=>N", &nodes);
+		REQUIRE(nodes.size() == 4);
+	}
+	SECTION("Seperate sides"){
+		Rule rule("A+B+C=>C");
+		REQUIRE(rule.getLeftSide() == "A+B+C");
+		REQUIRE(rule.getRightSide() == "C");
 	}
 
 }
 TEST_CASE("Query class")
 {
 
-	/*
+	
 	SECTION("empty query")
 	{
 		vector<Node*> nodes;
@@ -75,7 +79,7 @@ TEST_CASE("Query class")
 		REQUIRE(query.getNodes().size() == 0);
 		REQUIRE(query.getQuery() == "?");
 	}
-*/
+	
 	SECTION("add nodes to query list")
 	{
 		vector<Node*>nodes;
