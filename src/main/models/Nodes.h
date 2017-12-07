@@ -1,7 +1,7 @@
 #ifndef NO_H
 #define NO_H
 #include "expertsystem.hpp"
-#include "Node.h"
+
 using namespace std;
 class Nodes{
 	private : vector<Node*> nodes;

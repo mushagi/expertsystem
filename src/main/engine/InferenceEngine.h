@@ -2,11 +2,11 @@
 
 class  InferenceEngine{
 
-	vector<Rule> rules;
-	vector<Node*> *nodes;
+	Rules rules;
+	Nodes *nodes;
 	string facts;
 
-	public : InferenceEngine(vector<Rule> rules, vector<Node*> *nodes, 
+	public : InferenceEngine(Rules rules, Nodes *nodes, 
 			Query *query, string facts){
 		this->nodes = nodes;
 		this->rules = rules;
@@ -23,7 +23,7 @@ class  InferenceEngine{
 	}
 	Node *getNodeBySymbol(char c)
 	{
-		for (Node *node : *nodes)
+		for (Node *node : *nodes->getNodes())
 			if(node->getSymbol() == c)
 				return(node);
 		return nullptr;

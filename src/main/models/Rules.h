@@ -6,18 +6,19 @@ using namespace std;
 
 class Rules{
 
-  vector<Rule> rules;
-	
-  public : Rules(){
-           }
-  public : void add(Rule rule)
-           {
-             rules.push_back(rule);
-           }
-  public : int size()
-           {
-             return(rules.size());
-           }
+	vector<Rule> rules;
+
+	public : Rules(){
+			 }
+	public : void add(Rule rule)
+			 {
+				 rule.setRuleIndex(rules.size());
+				 rules.push_back(rule);
+			 }
+	public : int size()
+			 {
+				 return(rules.size());
+			 }
 };
 
 #endif

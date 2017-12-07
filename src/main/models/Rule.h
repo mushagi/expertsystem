@@ -1,19 +1,16 @@
 #ifndef RULE_H
 #define RULE_H
-#include <algorithm>
-#include <iostream>
-#include <string>
-#include <vector>
-
 #include "expertsystem.hpp"
-#include "Nodes.h"
+
 using namespace std;
+
 string eraseAllWhiteSpaces(string str);
 class Rule{
 	public : string rule;
 	private : string rightSide;
 	private: string leftSide;
 	private: Nodes *nodes;
+	private : int ruleIndex;
 	public : Rule(string rule){
 				 this->rule = rule;
 				 sanitiseRule();
@@ -26,7 +23,7 @@ class Rule{
 				 sanitiseRule();
 				 initNodes();
 				 initSides();
-         setNodesListOfIndex();
+				 setNodesListOfIndex();
 			 }
 	public : string toString() {
 				 return (rule);
@@ -34,7 +31,7 @@ class Rule{
 	private : void initSides(){
 				  leftSide = rule.substr(0, rule.find('='));
 				  rightSide = rule.substr(rule.find('>') + 1);
-			 }
+			  }
 	private: void sanitiseRule()
 			 {
 				 rule = eraseAllWhiteSpaces(rule);
@@ -51,9 +48,9 @@ class Rule{
 				 }
 			 }
 	private : int isExistingNode(char c){
-              for (Node *node : *nodes->getNodes())
-                if(node->getSymbol() == c)
-                  return (1);
+				  for (Node *node : *nodes->getNodes())
+					  if(node->getSymbol() == c)
+						  return (1);
 				  return (0);
 			  }
 	public : string getLeftSide(){
@@ -62,11 +59,17 @@ class Rule{
 	public : string getRightSide(){
 				 return (rightSide);
 			 }
-  private: void setNodesListOfIndex()
-           {
-             for (char c : rightSide)
-               nodes->getNodeByChar(c).addRule(this);
-           }
+	private: void setNodesListOfIndex()
+			 {
+				 for (char c : rightSide)
+				 {
+					 nodes->getNodeByChar(c)->addRule(ruleIndex);
+				 }
+			 }
+	public : void setRuleIndex(int ruleIndex)
+			 {
+				 this->ruleIndex = ruleIndex;
+			 }
 };
 
 #endif
