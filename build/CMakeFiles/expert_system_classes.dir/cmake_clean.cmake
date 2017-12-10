@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o"
+  "CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.o"
   "../lib/libexpert_system_classes.pdb"
   "../lib/libexpert_system_classes.a"
 )

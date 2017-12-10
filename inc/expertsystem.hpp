@@ -25,4 +25,6 @@
 #include "../src/main/engine/InferenceEngine.h"
 //int validate_query(vector<Node> nodes, vector<Rule> rules, Query query);
 string eraseAllWhiteSpaces(string str);
+int rpnCalculater(string rpnString);
+int string_split(string str, vector<string> *splitArray); 
 #endif

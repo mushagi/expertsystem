@@ -67,7 +67,8 @@ TEST_CASE("testing rules class")
 	}
 
 	SECTION("Seperate sides, right side with multiple variables"){
-		Rule rule("A+B+C=>C+S");
+		Nodes nodes;
+    Rule rule("A+B+C=>C+S", &nodes);
 		REQUIRE(rule.getLeftSide() == "A+B+C");
 		REQUIRE(rule.getRightSide() == "C+S");
 	}
@@ -139,8 +140,8 @@ TEST_CASE("Testing nodes class")
 	SECTION("Testing a node that exist on the right side, alot of times"){
 		Nodes nodes;
 		Rules rules;
-		Rule rule("A+B=>C+D", &nodes);
-		//REQUIRE(nodes.getNodeByChar('B')->getListOfIndex().size() == 1);
+    Rule rule("A+B=>C+D", &nodes);
+    REQUIRE(nodes.getNodeByChar('B')->getListOfIndex().size() == 0);
 	}
 }
 TEST_CASE("testing inference engine")
@@ -148,17 +149,79 @@ TEST_CASE("testing inference engine")
 	SECTION("testing initial updated facts"){
 		Nodes nodes;
 		Rules rules;
-		rules.add(Rule("A+B+C=>C", &nodes));
+		rules.add(Rule("A+B+C=>E+D", &nodes));
 		Query query("?AB", &nodes);
 		string facts = "A";
 		REQUIRE(query.getNodes().getNodeByChar('A')->getStatus() == 0);
-		InferenceEngine engine(rules, &nodes, &query, facts);
+		InferenceEngine engine(rules, nodes, query, facts);
 		REQUIRE(query.getNodes().getNodeByChar('A')->getStatus() == 1);
+
 	}
 	SECTION("simple inference test")
 	{
+    Nodes nodes;
+    Rules rules;
 
+    rules.add(Rule("A=>C", &nodes));
+    Query query("?C", &nodes);
+    string facts("A");
+
+    InferenceEngine engine(rules, nodes, query, facts);
+    engine.execute();
 	}
 }
 
+TEST_CASE("RPN Calculator")
+{
+  SECTION("Error tests")
+  {
+    int res = rpnCalculater("");
+    REQUIRE(res == 0);
+  }
+  SECTION("Simple test")
+  {
+    int res = rpnCalculater("1 1 +");
+    REQUIRE(res == 2);
+    
+    res = rpnCalculater("4 9 2 + +");
+    REQUIRE(res == 15);
+  }
+  SECTION("a bit advanced")
+  {
+    int res = rpnCalculater("50 10 25 + -");
+    REQUIRE(res == 15);
+  }
 
+  SECTION("Advanced")
+  {
+
+    int res = rpnCalculater("78 326 542 96 1452 36 965 % - * / + +");
+    REQUIRE(res == 404);
+
+    res = rpnCalculater("-111 45 123 * 26 73 + + - 78 * -85 / 123 -");
+    REQUIRE(res == 5148);
+  }
+}
+
+
+TEST_CASE("Convert infix to prefix")
+{
+  SECTION("Error tests")
+  {
+    //2+2
+  }
+  SECTION("Simple test")
+  {
+
+  }
+  SECTION("a bit advanced")
+  {
+
+  }
+  SECTION("Advanced")
+  {
+
+  }
+
+
+}

@@ -56,9 +56,13 @@ Rule.h
 expertsystem.hpp
 ../src/main/models/expertsystem.hpp
 
-/goinfre/mmayibo/projects/expertsystem/src/main/utils/tools.cpp
+/home/vador/projects/expertsystem/src/main/utils/rpn.cpp
 expertsystem.hpp
-/goinfre/mmayibo/projects/expertsystem/src/main/utils/expertsystem.hpp
+/home/vador/projects/expertsystem/src/main/utils/expertsystem.hpp
+
+/home/vador/projects/expertsystem/src/main/utils/tools.cpp
+expertsystem.hpp
+/home/vador/projects/expertsystem/src/main/utils/expertsystem.hpp
 algorithm
 -
 

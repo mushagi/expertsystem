@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /goinfre/mmayibo/.brew/Cellar/cmake/3.10.0/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /goinfre/mmayibo/.brew/Cellar/cmake/3.10.0/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /goinfre/mmayibo/projects/expertsystem
+CMAKE_SOURCE_DIR = /home/vador/projects/expertsystem
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /goinfre/mmayibo/projects/expertsystem/build
+CMAKE_BINARY_DIR = /home/vador/projects/expertsystem/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /goinfre/mmayibo/projects/expertsystem/build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/goinfre/mmayibo/.brew/Cellar/cmake/3.10.0/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -70,7 +70,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/goinfre/mmayibo/.brew/Cellar/cmake/3.10.0/bin/ctest --force-new-ctest-process $(ARGS)
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
 .PHONY : test
 
 # Special rule for the target test
@@ -81,7 +81,7 @@ test/fast: test
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/goinfre/mmayibo/.brew/Cellar/cmake/3.10.0/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -91,9 +91,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /goinfre/mmayibo/projects/expertsystem/build/CMakeFiles /goinfre/mmayibo/projects/expertsystem/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vador/projects/expertsystem/build/CMakeFiles /home/vador/projects/expertsystem/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /goinfre/mmayibo/projects/expertsystem/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vador/projects/expertsystem/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -135,19 +135,6 @@ unit_tests/fast:
 .PHONY : unit_tests/fast
 
 #=============================================================================
-# Target rules for targets named expert_system_classes
-
-# Build rule for target.
-expert_system_classes: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 expert_system_classes
-.PHONY : expert_system_classes
-
-# fast build rule for target.
-expert_system_classes/fast:
-	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/build
-.PHONY : expert_system_classes/fast
-
-#=============================================================================
 # Target rules for targets named expertsystem
 
 # Build rule for target.
@@ -159,6 +146,19 @@ expertsystem: cmake_check_build_system
 expertsystem/fast:
 	$(MAKE) -f CMakeFiles/expertsystem.dir/build.make CMakeFiles/expertsystem.dir/build
 .PHONY : expertsystem/fast
+
+#=============================================================================
+# Target rules for targets named expert_system_classes
+
+# Build rule for target.
+expert_system_classes: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 expert_system_classes
+.PHONY : expert_system_classes
+
+# fast build rule for target.
+expert_system_classes/fast:
+	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/build
+.PHONY : expert_system_classes/fast
 
 src/main/main.o: src/main/main.cpp.o
 
@@ -186,6 +186,33 @@ src/main/main.s: src/main/main.cpp.s
 src/main/main.cpp.s:
 	$(MAKE) -f CMakeFiles/expertsystem.dir/build.make CMakeFiles/expertsystem.dir/src/main/main.cpp.s
 .PHONY : src/main/main.cpp.s
+
+src/main/utils/rpn.o: src/main/utils/rpn.cpp.o
+
+.PHONY : src/main/utils/rpn.o
+
+# target to build an object file
+src/main/utils/rpn.cpp.o:
+	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.o
+.PHONY : src/main/utils/rpn.cpp.o
+
+src/main/utils/rpn.i: src/main/utils/rpn.cpp.i
+
+.PHONY : src/main/utils/rpn.i
+
+# target to preprocess a source file
+src/main/utils/rpn.cpp.i:
+	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.i
+.PHONY : src/main/utils/rpn.cpp.i
+
+src/main/utils/rpn.s: src/main/utils/rpn.cpp.s
+
+.PHONY : src/main/utils/rpn.s
+
+# target to generate assembly for a file
+src/main/utils/rpn.cpp.s:
+	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.s
+.PHONY : src/main/utils/rpn.cpp.s
 
 src/main/utils/tools.o: src/main/utils/tools.cpp.o
 
@@ -250,12 +277,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... unit_tests"
-	@echo "... expert_system_classes"
 	@echo "... rebuild_cache"
 	@echo "... expertsystem"
+	@echo "... expert_system_classes"
 	@echo "... src/main/main.o"
 	@echo "... src/main/main.i"
 	@echo "... src/main/main.s"
+	@echo "... src/main/utils/rpn.o"
+	@echo "... src/main/utils/rpn.i"
+	@echo "... src/main/utils/rpn.s"
 	@echo "... src/main/utils/tools.o"
 	@echo "... src/main/utils/tools.i"
 	@echo "... src/main/utils/tools.s"

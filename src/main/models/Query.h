@@ -6,7 +6,10 @@ class Query{
 	private:Nodes nodes;
 
 	private : vector<char> querySymbols;
-	public : Query(string query, Nodes *allNodes){
+  public : Query()
+           {
+           }
+  public : Query(string query, Nodes *allNodes){
 				 this->query = query;
 				 init(allNodes);
 			 }

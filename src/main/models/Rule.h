@@ -62,9 +62,8 @@ class Rule{
 	private: void setNodesListOfIndex()
 			 {
 				 for (char c : rightSide)
-				 {
-					 nodes->getNodeByChar(c)->addRule(ruleIndex);
-				 }
+           if (isalpha(c))
+             nodes->getNodeByChar(c)->addRule(ruleIndex);
 			 }
 	public : void setRuleIndex(int ruleIndex)
 			 {
