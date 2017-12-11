@@ -185,6 +185,9 @@ TEST_CASE("RPN Calculator")
     
     res = rpnCalculater("4 9 2 + +");
     REQUIRE(res == 15);
+    
+    res = rpnCalculater("3 6 9 * 6 + +");
+    REQUIRE(res == 63);
   }
   SECTION("a bit advanced")
   {
@@ -200,6 +203,9 @@ TEST_CASE("RPN Calculator")
 
     res = rpnCalculater("-111 45 123 * 26 73 + + - 78 * -85 / 123 -");
     REQUIRE(res == 5148);
+
+    res = rpnCalculater("3 6 + 8 4 / 5 / +");
+    REQUIRE(res == 9);
   }
 }
 
@@ -212,7 +218,10 @@ TEST_CASE("Convert infix to prefix")
   }
   SECTION("Simple test")
   {
-
+    string result = rpn_conv("7 + 2");
+    REQUIRE(result == "7 2 +");
+    result = rpn_conv("7 + 2 - 3");
+    REQUIRE(result == "7 2 + 3 -");
   }
   SECTION("a bit advanced")
   {

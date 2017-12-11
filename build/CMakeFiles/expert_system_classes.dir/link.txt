@@ -1,2 +1,2 @@
-/bin/ar qc ../lib/libexpert_system_classes.a  CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.o
+/bin/ar qc ../lib/libexpert_system_classes.a  CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.o CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o
 /bin/ranlib ../lib/libexpert_system_classes.a

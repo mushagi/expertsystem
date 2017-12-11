@@ -214,6 +214,33 @@ src/main/utils/rpn.cpp.s:
 	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.s
 .PHONY : src/main/utils/rpn.cpp.s
 
+src/main/utils/rpn_conv.o: src/main/utils/rpn_conv.cpp.o
+
+.PHONY : src/main/utils/rpn_conv.o
+
+# target to build an object file
+src/main/utils/rpn_conv.cpp.o:
+	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o
+.PHONY : src/main/utils/rpn_conv.cpp.o
+
+src/main/utils/rpn_conv.i: src/main/utils/rpn_conv.cpp.i
+
+.PHONY : src/main/utils/rpn_conv.i
+
+# target to preprocess a source file
+src/main/utils/rpn_conv.cpp.i:
+	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.i
+.PHONY : src/main/utils/rpn_conv.cpp.i
+
+src/main/utils/rpn_conv.s: src/main/utils/rpn_conv.cpp.s
+
+.PHONY : src/main/utils/rpn_conv.s
+
+# target to generate assembly for a file
+src/main/utils/rpn_conv.cpp.s:
+	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.s
+.PHONY : src/main/utils/rpn_conv.cpp.s
+
 src/main/utils/tools.o: src/main/utils/tools.cpp.o
 
 .PHONY : src/main/utils/tools.o
@@ -286,6 +313,9 @@ help:
 	@echo "... src/main/utils/rpn.o"
 	@echo "... src/main/utils/rpn.i"
 	@echo "... src/main/utils/rpn.s"
+	@echo "... src/main/utils/rpn_conv.o"
+	@echo "... src/main/utils/rpn_conv.i"
+	@echo "... src/main/utils/rpn_conv.s"
 	@echo "... src/main/utils/tools.o"
 	@echo "... src/main/utils/tools.i"
 	@echo "... src/main/utils/tools.s"

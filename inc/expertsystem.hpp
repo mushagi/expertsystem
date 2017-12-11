@@ -27,4 +27,6 @@
 string eraseAllWhiteSpaces(string str);
 int rpnCalculater(string rpnString);
 int string_split(string str, vector<string> *splitArray); 
+int isnumber(string str);
+string rpn_conv(string infixString);
 #endif

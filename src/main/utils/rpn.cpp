@@ -13,6 +13,8 @@ int do_op(int val1, int val2, char op)
     return (val1 / val2);
   if(op == '%')
     return (val1 % val2);
+  if(op == '^')
+    return (val1 ^ val2);
   return 0;
 }
 
@@ -48,7 +50,10 @@ int rpnCalculater(string rpnString)
     if (is_op(tempString[0]) && !isdigit(tempString[1]))
       pop(stack, &stackPos, tempString[0]);
     else
+    {
+      cout<<"tryna push "<<tempString<<endl; 
       push(stack, stoi(tempString) , &stackPos);
+    }
   }
   return (stack[0]);
 }

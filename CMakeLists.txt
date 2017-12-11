@@ -15,7 +15,7 @@ target_include_directories(expertsystem PRIVATE inc)
 
 # Add an library for the example classes
 add_library(expert_system_classes src/main/utils/tools.cpp
-  src/main/utils/rpn.cpp) 
+  src/main/utils/rpn.cpp src/main/utils/rpn_conv.cpp) 
 #############################################
 #Unit tests
 

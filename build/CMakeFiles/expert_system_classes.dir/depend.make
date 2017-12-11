@@ -10,6 +10,15 @@ CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.o: ../src/main/model
 CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.o: ../src/main/models/Rules.h
 CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.o: ../src/main/utils/rpn.cpp
 
+CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o: ../inc/expertsystem.hpp
+CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o: ../src/main/engine/InferenceEngine.h
+CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o: ../src/main/models/Node.h
+CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o: ../src/main/models/Nodes.h
+CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o: ../src/main/models/Query.h
+CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o: ../src/main/models/Rule.h
+CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o: ../src/main/models/Rules.h
+CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o: ../src/main/utils/rpn_conv.cpp
+
 CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o: ../inc/expertsystem.hpp
 CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o: ../src/main/engine/InferenceEngine.h
 CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o: ../src/main/models/Node.h
