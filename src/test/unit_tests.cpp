@@ -226,6 +226,9 @@ TEST_CASE("Convert infix to prefix")
   SECTION("a bit advanced")
   {
 
+    string result = rpn_conv("100 * 5 / 8 / 40 + 40");
+    REQUIRE(result == "100 5 * 8 / 40 / 40 +");
+    REQUIRE( (100 * 5 / 8 / 40 + 40) == rpnCalculater(result));
   }
   SECTION("Advanced")
   {

@@ -10,8 +10,7 @@ void printToResult(string str, string *result)
 
 void print_remaining_ops(vector<string> stack, string *result)
 {
-  for (string tempString : stack)
-  {
+  for (string tempString : stack){
     if(tempString == stack.back())
       result->append(tempString);
     else
@@ -45,8 +44,16 @@ string rpn_conv(string infixString)
     }
       else
     {
-      if(stack.size() > 1 && getPreceding(tempString) )
-      stack.push_back(tempString);
+      if(stack.size() >= 1 && getPreceding(tempString) <= getPreceding(stack.back()))
+      {
+        printToResult(stack.back(), &result);
+        stack.erase(stack.end());
+        stack.push_back(tempString);
+      }
+      else
+      {
+        stack.push_back(tempString);
+      } 
     }
   }
   print_remaining_ops(stack, &result);
