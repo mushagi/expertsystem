@@ -1,0 +1,19 @@
+#AND conditions and conclusions
+#The program can handle basic AND conditions, and AND conclusions. 
+
+#Example input: 
+
+B => A 
+D + E => B 
+G + H => F 
+I + J => G 
+G => H 
+L + M => K 
+O + P => L + N 
+N => M 
+
+[INITIAL FACTS HERE] 
+?AFKP 
+
+=DEIJOP, AFKP is true. 
+=DEIJP, AFP is true, K is false. 
