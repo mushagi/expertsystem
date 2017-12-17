@@ -212,6 +212,7 @@ TEST_CASE("RPN Calculator")
 
 TEST_CASE("Convert infix to prefix")
 {
+  /*
   SECTION("Error tests")
   {
     //2+2
@@ -223,6 +224,7 @@ TEST_CASE("Convert infix to prefix")
     result = rpn_conv("7 + 2 - 3");
     REQUIRE(result == "7 2 + 3 -");
   }
+  
   SECTION("a bit advanced")
   {
 
@@ -230,10 +232,37 @@ TEST_CASE("Convert infix to prefix")
     REQUIRE(result == "100 5 * 8 / 40 / 40 +");
     REQUIRE( (100 * 5 / 8 / 40 + 40) == rpnCalculater(result));
   }
+ 
   SECTION("Advanced")
   {
-
+    string result = rpn_conv("100 * 50 - 54 / 2 - 4900 + 1 - 74 + 4 - 2");
+    REQUIRE(result == "100 50 * 54 2 / - 4900 - 1 + 74 - 4 + 2 -");
+    REQUIRE((100 * 50 - 54 / 2 - 4900 + 1 - 74 + 4 - 2) == rpnCalculater(result));
+    result = rpn_conv("100 * 3466 / 345 / 4535 * 35 - 5000 * 5345 - 3532 + 100000000");
+    REQUIRE((100 * 3466 / 345 / 4535 * 35 - 5000 * 5345 - 3532 + 100000000) == rpnCalculater(result));
   }
 
+  SECTION("Brackets")
+  {
+    string result = rpn_conv("( 1 + 2 )");
+    REQUIRE(result == "1 2 +");
+    
+    result = rpn_conv("1 + 2 / ( 10 + 1 / 3 )");
+    REQUIRE(result == "1 2 10 1 3 / + / +");
+    REQUIRE(1 + 2 / ( 10 + 1 / 3 ) == rpnCalculater(result));
+    
+    result = rpn_conv("( 6 ) + ( ( 8 ) + ( 9 + 1 ) )");
+    REQUIRE(result == "6 8 9 1 + + +");
+    REQUIRE(( 6 ) + ( ( 8 ) + ( 9 + 1 ) ) == rpnCalculater(result));
 
+    result = rpn_conv("( 10 + 6 / ( 2 + 4 ) ) + ( 90 / 2 )");
+    REQUIRE(result == "10 6 2 4 + / + 90 2 / +");
+    REQUIRE(((10 + 6 / ( 2 + 4 ) ) + ( 90 / 2 ))== rpnCalculater(result));
+
+*/
+  string  result = rpn_conv("( 10 + 3 / ( 3 - 6 ) * ( 4 ) / 3 * 76 / ( 2 * ( 7 - 1 ) ) + ( 10 + ( 800 / 2 ) - 6 ) )");
+    REQUIRE(result == "10 6 2 4 + / + 90 2 / +");
+    REQUIRE((( 10 + 3  / ( 3 - 6 ) * ( 4 ) / 3 * 76 /  ( 2 * ( 7 - 1 ) ) +  ( 10 + ( 800 / 2 ) - 6 ) ))== rpnCalculater(result));
+
+  //}
 }

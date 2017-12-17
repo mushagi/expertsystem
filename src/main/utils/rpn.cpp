@@ -51,7 +51,6 @@ int rpnCalculater(string rpnString)
       pop(stack, &stackPos, tempString[0]);
     else
     {
-      cout<<"tryna push "<<tempString<<endl; 
       push(stack, stoi(tempString) , &stackPos);
     }
   }
