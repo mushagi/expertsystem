@@ -260,9 +260,9 @@ TEST_CASE("Convert infix to prefix")
     REQUIRE(((10 + 6 / ( 2 + 4 ) ) + ( 90 / 2 ))== rpnCalculater(result));
 
 */
-  string  result = rpn_conv("( 10 + 3 / ( 3 - 6 ) * ( 4 ) / 3 * 76 / ( 2 * ( 7 - 1 ) ) + ( 10 + ( 800 / 2 ) - 6 ) )");
-    REQUIRE(result == "10 6 2 4 + / + 90 2 / +");
-    REQUIRE((( 10 + 3  / ( 3 - 6 ) * ( 4 ) / 3 * 76 /  ( 2 * ( 7 - 1 ) ) +  ( 10 + ( 800 / 2 ) - 6 ) ))== rpnCalculater(result));
+  string  result = rpn_conv("( ( ( 1 ) * 5 + ( 6 + 6 ) + 5 ) + 6 ) * 6");
+ //   REQUIRE(result == "( 10 / 3 ) + ( 3 / 2 * ( 100 / 2 ) - 4 ");
+    REQUIRE( ((( ( 1 ) * 5 + ( 6 + 6 ) + 5 ) + 6) * 6)== rpnCalculater(result));
 
   //}
 }
