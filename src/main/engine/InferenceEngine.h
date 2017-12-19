@@ -30,19 +30,18 @@ class  InferenceEngine{
            }
   public : void execute(){
 			   cout<<"about to execute"<<endl;
-             for (Node *node : *query.getNodes().getNodes())
-             {
-				 cout<<"the node is = "<<query.getNodes().getNodes()->front()->getSymbol()<<endl;
-				 for (int index : node->getListOfIndex())
-				 {
-					 solve(rules.getRules().at(index));
-				 }
-             }
+			   Nodes queryNodes = query.getNodes();
+
+			   for (Node *node : *queryNodes.getNodes())
+			   {
+				   int index = node->getListOfIndex().front();
+				   solve(rules.getRules().at(index));
+			   }
+	
            }
 
   private : int solve(Rule rule)
 			{
-				cout<<rule.getRightSide()<<endl;
 				return 0;
 			}
 
