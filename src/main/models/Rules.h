@@ -19,6 +19,10 @@ class Rules{
 			 {
 				 return(rules.size());
 			 }
+	public : vector <Rule> getRules()
+			 {
+				 return rules;
+			 }
 };
 
 #endif

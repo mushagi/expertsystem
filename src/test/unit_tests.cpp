@@ -122,6 +122,7 @@ TEST_CASE("Testing nodes class")
 	SECTION("Testing a node that doesn't exist on the right side"){
 		Nodes nodes;
 		Rules rules;
+
 		rules.add(Rule("A+B=>C", &nodes));
 		rules.add(Rule("A=>D", &nodes));
 		rules.add(Rule("Q=>C", &nodes));
@@ -212,7 +213,7 @@ TEST_CASE("RPN Calculator")
 
 TEST_CASE("Convert infix to prefix")
 {
-  /*
+
   SECTION("Error tests")
   {
     //2+2
@@ -258,11 +259,9 @@ TEST_CASE("Convert infix to prefix")
     result = rpn_conv("( 10 + 6 / ( 2 + 4 ) ) + ( 90 / 2 )");
     REQUIRE(result == "10 6 2 4 + / + 90 2 / +");
     REQUIRE(((10 + 6 / ( 2 + 4 ) ) + ( 90 / 2 ))== rpnCalculater(result));
-
-*/
-  string  result = rpn_conv("( ( ( 1 ) * 5 + ( 6 + 6 ) + 5 ) + 6 ) * 6");
- //   REQUIRE(result == "( 10 / 3 ) + ( 3 / 2 * ( 100 / 2 ) - 4 ");
+	
+	result = rpn_conv("( ( ( 1 ) * 5 + ( 6 + 6 ) + 5 ) + 6 ) * 6");
     REQUIRE( ((( ( 1 ) * 5 + ( 6 + 6 ) + 5 ) + 6) * 6)== rpnCalculater(result));
 
-  //}
+  }
 }

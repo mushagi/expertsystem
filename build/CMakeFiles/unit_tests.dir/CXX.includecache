@@ -408,11 +408,11 @@ Rule.h
 expertsystem.hpp
 ../src/main/models/expertsystem.hpp
 
-/home/vador/projects/expertsystem/src/test/unit_tests.cpp
+/goinfre/mmayibo/projects/expertsystem/src/test/unit_tests.cpp
 string
 -
 catch.hpp
-/home/vador/projects/expertsystem/src/test/catch.hpp
+/goinfre/mmayibo/projects/expertsystem/src/test/catch.hpp
 expertsystem.hpp
-/home/vador/projects/expertsystem/src/test/expertsystem.hpp
+/goinfre/mmayibo/projects/expertsystem/src/test/expertsystem.hpp
 
