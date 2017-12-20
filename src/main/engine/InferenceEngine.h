@@ -29,20 +29,32 @@ class  InferenceEngine{
              return nullptr;
            }
   public : void execute(){
-			   cout<<"about to execute"<<endl;
-			   Nodes queryNodes = query.getNodes();
+             cout<<"about to execute"<<endl;
+             Nodes queryNodes = query.getNodes();
 
-			   for (Node *node : *queryNodes.getNodes())
-			   {
-				   int index = node->getListOfIndex().front();
-				   solve(rules.getRules().at(index));
-			   }
-	
+             for (Node *node : *queryNodes.getNodes())
+             {
+               int index = node->getListOfIndex().front();
+               solve(rules.getRules().at(index));
+             }
            }
 
-  private : int solve(Rule rule)
-			{
-				return 0;
-			}
+  private : int isNodeAFact(Node node)
+            {
+              for (char c : facts)
+              {
+                if (node.getSymbol() == c )
+                  return 1;
+              }
+              return 0;
+            }
+  private : int solve(Rule rule){
+              for (Node *node : rule.getLeftSideNodes())
+              {
+                if (isNodeAFact(node))
+                  
+              }
+              return 0;
+            }
 
 };

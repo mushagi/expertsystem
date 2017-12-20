@@ -45,12 +45,14 @@ TEST_CASE("testing rules class")
 	REQUIRE(rule.toString() == "A+B+C=>D");
 	SECTION("Complex rule")
 	{
-		Rule ruleComplex(" A + B + D             => G ");
+		Nodes nodes;
+		Rule ruleComplex(" A + B + D             => G ", &nodes);
 		REQUIRE(ruleComplex.toString() == "A+B+D=>G");
 	}
 	SECTION("get rid of the comments ")
 	{
-		Rule ruleComplex2(" A + B + D             => G        # HEllo there stranger");
+		Nodes nodes;
+		Rule ruleComplex2(" A + B + D             => G        # HEllo there stranger", &nodes);
 		REQUIRE(ruleComplex2.toString() == "A+B+D=>G");
 	}
 
@@ -61,7 +63,8 @@ TEST_CASE("testing rules class")
 		REQUIRE(nodes.size() == 4);
 	}
 	SECTION("Seperate sides"){
-		Rule rule("A+B+C=>C");
+		Nodes nodes;
+		Rule rule("A+B+C=>C", &nodes);
 		REQUIRE(rule.getLeftSide() == "A+B+C");
 		REQUIRE(rule.getRightSide() == "C");
 	}
@@ -72,6 +75,16 @@ TEST_CASE("testing rules class")
 		REQUIRE(rule.getLeftSide() == "A+B+C");
 		REQUIRE(rule.getRightSide() == "C+S");
 	}
+
+  SECTION("Get side nodes")
+  {
+    Nodes nodes;
+
+    Rule rule("A+B=>C", &nodes);
+    REQUIRE(rule.getLeftSideNodes().front()->getSymbol() == 'A');
+    REQUIRE(rule.getLeftSideNodes().back()->getSymbol() == 'B');
+    REQUIRE(rule.getLeftSideNodes().size() == 2);
+  }
 }
 
 TEST_CASE("Query class")
@@ -106,13 +119,14 @@ TEST_CASE("Testing the rules class")
 {
 	SECTION("number of rules")
 	{
+		Nodes nodes;
 		Rules rules;
 		REQUIRE(rules.size() == 0);
 
-		rules.add(Rule("A+B+=>F"));
+		rules.add(Rule("A+B+=>F", &nodes));
 		REQUIRE(rules.size() == 1);
 
-		rules.add(Rule("A+B+=>F"));
+		rules.add(Rule("A+B+=>F", &nodes));
 		REQUIRE(rules.size() == 2);
 	}
 }
