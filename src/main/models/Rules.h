@@ -5,7 +5,6 @@ using namespace std;
 #include "expertsystem.hpp"
 
 class Rules{
-
 	vector<Rule> rules;
 
 	public : Rules(){

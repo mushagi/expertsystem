@@ -36,8 +36,7 @@ TEST_CASE( "testing node class" ){
 
 }
 
-
-TEST_CASE("testing rules class")
+TEST_CASE("testing rule class")
 {
 	Nodes nodes;
 	Rule rule("A+B+C=>D", &nodes);
@@ -71,21 +70,22 @@ TEST_CASE("testing rules class")
 
 	SECTION("Seperate sides, right side with multiple variables"){
 		Nodes nodes;
-    Rule rule("A+B+C=>C+S", &nodes);
+		Rule rule("A+B+C=>C+S", &nodes);
 		REQUIRE(rule.getLeftSide() == "A+B+C");
 		REQUIRE(rule.getRightSide() == "C+S");
 	}
 
-  SECTION("Get side nodes")
-  {
-    Nodes nodes;
+	SECTION("Get side nodes")
+	{
+		Nodes nodes;
 
-    Rule rule("A+B=>C", &nodes);
-    REQUIRE(rule.getLeftSideNodes().front()->getSymbol() == 'A');
-    REQUIRE(rule.getLeftSideNodes().back()->getSymbol() == 'B');
-    REQUIRE(rule.getLeftSideNodes().size() == 2);
-  }
+		Rule rule("A+B=>C", &nodes);
+		REQUIRE(rule.getLeftSideNodes().front()->getSymbol() == 'A');
+		REQUIRE(rule.getLeftSideNodes().back()->getSymbol() == 'B');
+		REQUIRE(rule.getLeftSideNodes().size() == 2);
+	}
 }
+
 
 TEST_CASE("Query class")
 {
@@ -108,11 +108,19 @@ TEST_CASE("Query class")
 		Query query("?AB", &nodes);
 
 		REQUIRE(query.getQuery() == "?AB");
-		REQUIRE(query.getNodes().getNodes()->front()->getSymbol() == 'A');
+		REQUIRE(query.getNodes().front()->getSymbol() == 'A');
 
-		REQUIRE(query.getNodes().getNodes()->front()->getSymbol() == nodes.getNodes()->front()->getSymbol());
-		REQUIRE(query.getNodes().getNodes()->front() == nodes.getNodes()->front());
+		REQUIRE(query.getNodes().front()->getSymbol() == nodes.getNodes()->front().getSymbol());
+		REQUIRE(query.getNodes().front() == &nodes.getNodes()->front());
+		REQUIRE(query.getNodes().front()->getStatus() == 0);
+		query.getNodes().front()->setStatus(4);
+		REQUIRE(query.getNodes().front()->getStatus() == 4);
+		REQUIRE(nodes.getNodes()->front().getStatus() == 4);
+		
+		REQUIRE(query.getNodeByChar('A')->getStatus() == 4);
+		//query
 	}
+
 }
 
 TEST_CASE("Testing the rules class")
@@ -135,14 +143,13 @@ TEST_CASE("Testing nodes class")
 {
 	SECTION("Testing a node that doesn't exist on the right side"){
 		Nodes nodes;
-		Rules rules;
 
+		Rules rules;
 		rules.add(Rule("A+B=>C", &nodes));
 		rules.add(Rule("A=>D", &nodes));
 		rules.add(Rule("Q=>C", &nodes));
 		REQUIRE(nodes.getNodeByChar('Q')->getListOfIndex().size() == 0);
 	}
-
 	SECTION("Testing a node that exist on the right side"){
 		Nodes nodes;
 		Rules rules;
@@ -151,14 +158,15 @@ TEST_CASE("Testing nodes class")
 		rules.add(Rule("Q=>C", &nodes));
 		REQUIRE(nodes.getNodeByChar('D')->getListOfIndex().size() == 1);
 	}
-	
+
 	SECTION("Testing a node that exist on the right side, alot of times"){
 		Nodes nodes;
 		Rules rules;
-    Rule rule("A+B=>C+D", &nodes);
-    REQUIRE(nodes.getNodeByChar('B')->getListOfIndex().size() == 0);
+		Rule rule("A+B=>C+D", &nodes);
+		REQUIRE(nodes.getNodeByChar('B')->getListOfIndex().size() == 0);
 	}
 }
+
 TEST_CASE("testing inference engine")
 {
 	SECTION("testing initial updated facts"){
@@ -167,115 +175,141 @@ TEST_CASE("testing inference engine")
 		rules.add(Rule("A+B+C=>E+D", &nodes));
 		Query query("?AB", &nodes);
 		string facts = "A";
-		REQUIRE(query.getNodes().getNodeByChar('A')->getStatus() == 0);
 		InferenceEngine engine(rules, nodes, query, facts);
-		REQUIRE(query.getNodes().getNodeByChar('A')->getStatus() == 1);
-
+		REQUIRE(engine.getNodeBySymbol('A')->getStatus() == 1);
 	}
-	SECTION("simple inference test")
+
+	SECTION("simplest inference test")
 	{
-    Nodes nodes;
-    Rules rules;
+		Nodes nodes;
+		Rules rules;
 
-    rules.add(Rule("A=>C", &nodes));
-    Query query("?C", &nodes);
-    string facts("A");
+		rules.add(Rule("A+B=>C", &nodes));
+		Query query("?C", &nodes);
+		string facts("A");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	
+	SECTION("simple test")
+	{
+		Nodes nodes;
+		Rules rules;
 
-    InferenceEngine engine(rules, nodes, query, facts);
-    engine.execute();
+		rules.add(Rule("A+B=>C", &nodes));
+		Query query("?C", &nodes);
+		string facts("");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	SECTION("Test 1")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B => A", &nodes));
+		rules.add(Rule("D + E => B ", &nodes));
+		Query query("?A", &nodes);
+		string facts("DE");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE");
 	}
 }
 
 TEST_CASE("RPN Calculator")
 {
-  SECTION("Error tests")
-  {
-    int res = rpnCalculater("");
-    REQUIRE(res == 0);
-  }
-  SECTION("Simple test")
-  {
-    int res = rpnCalculater("1 1 +");
-    REQUIRE(res == 2);
-    
-    res = rpnCalculater("4 9 2 + +");
-    REQUIRE(res == 15);
-    
-    res = rpnCalculater("3 6 9 * 6 + +");
-    REQUIRE(res == 63);
-  }
-  SECTION("a bit advanced")
-  {
-    int res = rpnCalculater("50 10 25 + -");
-    REQUIRE(res == 15);
-  }
+	SECTION("Error tests")
+	{
+		int res = rpnCalculater("");
+		REQUIRE(res == 0);
+	}
+	SECTION("Simple test")
+	{
+		int res = rpnCalculater("1 1 +");
+		REQUIRE(res == 2);
 
-  SECTION("Advanced")
-  {
+		res = rpnCalculater("4 9 2 + +");
+		REQUIRE(res == 15);
 
-    int res = rpnCalculater("78 326 542 96 1452 36 965 % - * / + +");
-    REQUIRE(res == 404);
+		res = rpnCalculater("3 6 9 * 6 + +");
+		REQUIRE(res == 63);
+	}
+	SECTION("a bit advanced")
+	{
+		int res = rpnCalculater("50 10 25 + -");
+		REQUIRE(res == 15);
+	}
 
-    res = rpnCalculater("-111 45 123 * 26 73 + + - 78 * -85 / 123 -");
-    REQUIRE(res == 5148);
+	SECTION("Advanced")
+	{
 
-    res = rpnCalculater("3 6 + 8 4 / 5 / +");
-    REQUIRE(res == 9);
-  }
+		int res = rpnCalculater("78 326 542 96 1452 36 965 % - * / + +");
+		REQUIRE(res == 404);
+
+		res = rpnCalculater("-111 45 123 * 26 73 + + - 78 * -85 / 123 -");
+		REQUIRE(res == 5148);
+
+		res = rpnCalculater("3 6 + 8 4 / 5 / +");
+		REQUIRE(res == 9);
+	}
 }
 
 
 TEST_CASE("Convert infix to prefix")
 {
 
-  SECTION("Error tests")
-  {
-    //2+2
-  }
-  SECTION("Simple test")
-  {
-    string result = rpn_conv("7 + 2");
-    REQUIRE(result == "7 2 +");
-    result = rpn_conv("7 + 2 - 3");
-    REQUIRE(result == "7 2 + 3 -");
-  }
-  
-  SECTION("a bit advanced")
-  {
+	SECTION("Error tests")
+	{
+		//2+2
+	}
+	SECTION("Simple test")
+	{
+		string result = rpn_conv("7 + 2");
+		REQUIRE(result == "7 2 +");
+		result = rpn_conv("7 + 2 - 3");
+		REQUIRE(result == "7 2 + 3 -");
+	}
 
-    string result = rpn_conv("100 * 5 / 8 / 40 + 40");
-    REQUIRE(result == "100 5 * 8 / 40 / 40 +");
-    REQUIRE( (100 * 5 / 8 / 40 + 40) == rpnCalculater(result));
-  }
- 
-  SECTION("Advanced")
-  {
-    string result = rpn_conv("100 * 50 - 54 / 2 - 4900 + 1 - 74 + 4 - 2");
-    REQUIRE(result == "100 50 * 54 2 / - 4900 - 1 + 74 - 4 + 2 -");
-    REQUIRE((100 * 50 - 54 / 2 - 4900 + 1 - 74 + 4 - 2) == rpnCalculater(result));
-    result = rpn_conv("100 * 3466 / 345 / 4535 * 35 - 5000 * 5345 - 3532 + 100000000");
-    REQUIRE((100 * 3466 / 345 / 4535 * 35 - 5000 * 5345 - 3532 + 100000000) == rpnCalculater(result));
-  }
+	SECTION("a bit advanced")
+	{
 
-  SECTION("Brackets")
-  {
-    string result = rpn_conv("( 1 + 2 )");
-    REQUIRE(result == "1 2 +");
-    
-    result = rpn_conv("1 + 2 / ( 10 + 1 / 3 )");
-    REQUIRE(result == "1 2 10 1 3 / + / +");
-    REQUIRE(1 + 2 / ( 10 + 1 / 3 ) == rpnCalculater(result));
-    
-    result = rpn_conv("( 6 ) + ( ( 8 ) + ( 9 + 1 ) )");
-    REQUIRE(result == "6 8 9 1 + + +");
-    REQUIRE(( 6 ) + ( ( 8 ) + ( 9 + 1 ) ) == rpnCalculater(result));
+		string result = rpn_conv("100 * 5 / 8 / 40 + 40");
+		REQUIRE(result == "100 5 * 8 / 40 / 40 +");
+		REQUIRE( (100 * 5 / 8 / 40 + 40) == rpnCalculater(result));
+	}
 
-    result = rpn_conv("( 10 + 6 / ( 2 + 4 ) ) + ( 90 / 2 )");
-    REQUIRE(result == "10 6 2 4 + / + 90 2 / +");
-    REQUIRE(((10 + 6 / ( 2 + 4 ) ) + ( 90 / 2 ))== rpnCalculater(result));
-	
-	result = rpn_conv("( ( ( 1 ) * 5 + ( 6 + 6 ) + 5 ) + 6 ) * 6");
-    REQUIRE( ((( ( 1 ) * 5 + ( 6 + 6 ) + 5 ) + 6) * 6)== rpnCalculater(result));
+	SECTION("Advanced")
+	{
+		string result = rpn_conv("100 * 50 - 54 / 2 - 4900 + 1 - 74 + 4 - 2");
+		REQUIRE(result == "100 50 * 54 2 / - 4900 - 1 + 74 - 4 + 2 -");
+		REQUIRE((100 * 50 - 54 / 2 - 4900 + 1 - 74 + 4 - 2) == rpnCalculater(result));
+		result = rpn_conv("100 * 3466 / 345 / 4535 * 35 - 5000 * 5345 - 3532 + 100000000");
+		REQUIRE((100 * 3466 / 345 / 4535 * 35 - 5000 * 5345 - 3532 + 100000000) == rpnCalculater(result));
+	}
 
-  }
+	SECTION("Brackets")
+	{
+		string result = rpn_conv("( 1 + 2 )");
+		REQUIRE(result == "1 2 +");
+
+		result = rpn_conv("1 + 2 / ( 10 + 1 / 3 )");
+		REQUIRE(result == "1 2 10 1 3 / + / +");
+		REQUIRE(1 + 2 / ( 10 + 1 / 3 ) == rpnCalculater(result));
+
+		result = rpn_conv("( 6 ) + ( ( 8 ) + ( 9 + 1 ) )");
+		REQUIRE(result == "6 8 9 1 + + +");
+		REQUIRE(( 6 ) + ( ( 8 ) + ( 9 + 1 ) ) == rpnCalculater(result));
+
+		result = rpn_conv("( 10 + 6 / ( 2 + 4 ) ) + ( 90 / 2 )");
+		REQUIRE(result == "10 6 2 4 + / + 90 2 / +");
+		REQUIRE(((10 + 6 / ( 2 + 4 ) ) + ( 90 / 2 ))== rpnCalculater(result));
+
+		result = rpn_conv("( ( ( 1 ) * 5 + ( 6 + 6 ) + 5 ) + 6 ) * 6");
+		REQUIRE( ((( ( 1 ) * 5 + ( 6 + 6 ) + 5 ) + 6) * 6)== rpnCalculater(result));
+
+	}
 }
+

@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /goinfre/mmayibo/.brew/Cellar/cmake/3.10.0/bin/cmake
+CMAKE_COMMAND = /goinfre/mmayibo/.brew/Cellar/cmake/3.10.1/bin/cmake
 
 # The command to remove a file.
-RM = /goinfre/mmayibo/.brew/Cellar/cmake/3.10.0/bin/cmake -E remove -f
+RM = /goinfre/mmayibo/.brew/Cellar/cmake/3.10.1/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /goinfre/mmayibo/projects/expertsystem/build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/goinfre/mmayibo/.brew/Cellar/cmake/3.10.0/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/goinfre/mmayibo/.brew/Cellar/cmake/3.10.1/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -70,7 +70,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/goinfre/mmayibo/.brew/Cellar/cmake/3.10.0/bin/ctest --force-new-ctest-process $(ARGS)
+	/goinfre/mmayibo/.brew/Cellar/cmake/3.10.1/bin/ctest --force-new-ctest-process $(ARGS)
 .PHONY : test
 
 # Special rule for the target test
@@ -81,7 +81,7 @@ test/fast: test
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/goinfre/mmayibo/.brew/Cellar/cmake/3.10.0/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/goinfre/mmayibo/.brew/Cellar/cmake/3.10.1/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache

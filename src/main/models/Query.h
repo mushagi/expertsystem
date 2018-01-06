@@ -3,13 +3,13 @@
 string eraseAllWhiteSpaces(string str);
 class Query{
 	private:string query;
-	private:Nodes nodes;
+	private:vector<Node*> nodes;
 
 	private : vector<char> querySymbols;
-  public : Query()
-           {
-           }
-  public : Query(string query, Nodes *allNodes){
+	public : Query()
+			 {
+			 }
+	public : Query(string query, Nodes *allNodes){
 				 this->query = query;
 				 init(allNodes);
 			 }
@@ -17,7 +17,7 @@ class Query{
 			{
 				return (query);
 			}
-	public: Nodes getNodes(){
+	public: vector<Node*> getNodes(){
 				return (nodes);
 			}
 	private :void init(Nodes *allNodes)
@@ -41,14 +41,23 @@ class Query{
 				  }
 			  }
 
+
+	public : Node *getNodeByChar(char c)
+			 {
+				 for (Node *node : nodes)
+					 if(node->getSymbol() == c)
+						 return (node);
+				 return (nullptr);
+			 }
 	private: void updateQueryNodes(Nodes *allNodes){
 				 for (char c : querySymbols){
-					 for (Node *node : *allNodes->getNodes()) {
-						 if (node->getSymbol() == c)
+					 for (Node &node : *allNodes->getNodes()) {
+						 if (node.getSymbol() == c)
 						 {
-							 nodes.add(node);
+							 nodes.push_back(&node);
 						 }
 					 }
 				 }
 			 }
+
 };
