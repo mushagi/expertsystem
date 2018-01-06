@@ -215,7 +215,7 @@ TEST_CASE("testing inference engine")
 		string facts("DE");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE");
+		REQUIRE(engine.getResults() == "A=FALSE");
 	}
 }
 
