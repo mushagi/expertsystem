@@ -9,7 +9,7 @@ class Rule{
 	public : string rule;
 	private : string rightSide;
 	private: string leftSide;
-	private: vector<Node *> leftSideNodes;
+	private: vector<char> leftSideNodes;
 	private: Nodes *nodes;
 	private : int ruleIndex;
 	public : Rule(string rule){
@@ -31,11 +31,12 @@ class Rule{
 	private : void initSides(){
 				  leftSide = rule.substr(0, rule.find('='));
 				  rightSide = rule.substr(rule.find('>') + 1);
-				  for (Node &node : *nodes->getNodes()){
+				  for (Node node : *nodes->getNodes()){
 					  for (char c : leftSide)
 						  if (c == node.getSymbol())
-							  leftSideNodes.push_back(&node);
+							  leftSideNodes.push_back(c);
 				  }
+
 			  }
 	private: void sanitiseRule()
 			 {
@@ -79,7 +80,7 @@ class Rule{
 				 this->ruleIndex = ruleIndex;
 				 setNodesListOfIndex();
 			 }
-	public : vector <Node *> getLeftSideNodes()
+	public : vector <char> getLeftSideNodes()
 			 {
 				 return leftSideNodes;
 			 }

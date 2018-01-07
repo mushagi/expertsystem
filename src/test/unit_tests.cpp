@@ -80,8 +80,8 @@ TEST_CASE("testing rule class")
 		Nodes nodes;
 
 		Rule rule("A+B=>C", &nodes);
-		REQUIRE(rule.getLeftSideNodes().front()->getSymbol() == 'A');
-		REQUIRE(rule.getLeftSideNodes().back()->getSymbol() == 'B');
+		REQUIRE(rule.getLeftSideNodes().front() == 'A');
+		REQUIRE(rule.getLeftSideNodes().back()== 'B');
 		REQUIRE(rule.getLeftSideNodes().size() == 2);
 	}
 }
@@ -169,6 +169,7 @@ TEST_CASE("Testing nodes class")
 
 TEST_CASE("testing inference engine")
 {
+/*
 	SECTION("testing initial updated facts"){
 		Nodes nodes;
 		Rules rules;
@@ -178,7 +179,6 @@ TEST_CASE("testing inference engine")
 		InferenceEngine engine(rules, nodes, query, facts);
 		REQUIRE(engine.getNodeBySymbol('A')->getStatus() == 1);
 	}
-
 	SECTION("simplest inference test")
 	{
 		Nodes nodes;
@@ -204,19 +204,427 @@ TEST_CASE("testing inference engine")
 		engine.execute();
 		REQUIRE(engine.getResults() == "C=FALSE\n");
 	}
-	SECTION("Test 1")
+	*/
+/*	SECTION("Test 1 Part 1")
 	{
 		Nodes nodes;
 		Rules rules;
 
 		rules.add(Rule("B => A", &nodes));
 		rules.add(Rule("D + E => B ", &nodes));
+		rules.add(Rule("G + H => F", &nodes));
+		rules.add(Rule("I + J => G", &nodes));
+		rules.add(Rule("G => H", &nodes));
+		rules.add(Rule("L + M => K", &nodes));
+		rules.add(Rule("O + P => L + N", &nodes));
+		rules.add(Rule("N => M", &nodes));
+		Query query("?AFKP", &nodes);
+		string facts("DEIJOP");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+
+	SECTION("Test 1 Part 2")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B => A", &nodes));
+		rules.add(Rule("D + E => B ", &nodes));
+		rules.add(Rule("G + H => F", &nodes));
+		rules.add(Rule("I + J => G", &nodes));
+		rules.add(Rule("G => H", &nodes));
+		rules.add(Rule("L + M => K", &nodes));
+		rules.add(Rule("O + P => L + N", &nodes));
+		rules.add(Rule("N => M", &nodes));
+		Query query("?AFKP", &nodes);
+		string facts("DEIJP");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+
+
+
+	SECTION("Test 2 Part 1 OR")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B + C => A", &nodes));
+		rules.add(Rule("D | E => B", &nodes));
+		rules.add(Rule("B => C", &nodes));
+		Query query("?A", &nodes);
+		string facts("");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+
+	SECTION("Test 2 Part 2")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B + C => A", &nodes));
+		rules.add(Rule("D | E => B", &nodes));
+		rules.add(Rule("B => C", &nodes));
+		Query query("?A", &nodes);
+		string facts("D");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	
+	SECTION("Test 2 Part 3")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B + C => A", &nodes));
+		rules.add(Rule("D | E => B", &nodes));
+		rules.add(Rule("B => C", &nodes));
+		Query query("?A", &nodes);
+		string facts("E");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	
+	SECTION("Test 2 Part 3")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B + C => A", &nodes));
+		rules.add(Rule("D | E => B", &nodes));
+		rules.add(Rule("B => C", &nodes));
 		Query query("?A", &nodes);
 		string facts("DE");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "A=FALSE");
+		REQUIRE(engine.getResults() == "C=FALSE\n");
 	}
+
+
+	SECTION("Test 3 Part 1 XOR")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B + C => A", &nodes));
+		rules.add(Rule("D ^ E => B", &nodes));
+		rules.add(Rule("B => C", &nodes));
+		Query query("?A", &nodes);
+		string facts("");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+
+	SECTION("Test 3 Part 2")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B + C => A", &nodes));
+		rules.add(Rule("D ^ E => B", &nodes));
+		rules.add(Rule("B => C", &nodes));
+		Query query("?A", &nodes);
+		string facts("D");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	
+
+	SECTION("Test 3 Part 3")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B + C => A", &nodes));
+		rules.add(Rule("D ^ E => B", &nodes));
+		rules.add(Rule("B => C", &nodes));
+		Query query("?A", &nodes);
+		string facts("E");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	
+	SECTION("Test 3 Part 3")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B + C => A", &nodes));
+		rules.add(Rule("D ^ E => B", &nodes));
+		rules.add(Rule("B => C", &nodes));
+		Query query("?A", &nodes);
+		string facts("DE");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	*/
+
+	SECTION("Test 4 Part 1 contradicitons")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B => A", &nodes));
+		rules.add(Rule("C => A", &nodes));
+		Query query("?A", &nodes);
+		string facts("");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	SECTION("Test 4 Part 2")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B => A", &nodes));
+		rules.add(Rule("C => A", &nodes));
+		Query query("?A", &nodes);
+		string facts("B");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	SECTION("Test 4 Part 3")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B => A", &nodes));
+		rules.add(Rule("C => A", &nodes));
+		Query query("?A", &nodes);
+		string facts("C");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	SECTION("Test 4 Part 4")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B => A", &nodes));
+		rules.add(Rule("C => A", &nodes));
+		Query query("?A", &nodes);
+		string facts("BC");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	/*
+
+	SECTION("Test 5 Part 1")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("A | B + C => E", &nodes));
+		rules.add(Rule("(F | G) + H => E", &nodes));
+		Query query("?E", &nodes);
+		string facts("");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+
+	SECTION("Test 5 Part 2")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("A | B + C => E", &nodes));
+		rules.add(Rule("(F | G) + H => E", &nodes));
+		Query query("?E", &nodes);
+		string facts("A");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	
+	SECTION("Test 5 Part 3")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("A | B + C => E", &nodes));
+		rules.add(Rule("(F | G) + H => E", &nodes));
+		Query query("?E", &nodes);
+		string facts("B");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+
+
+	SECTION("Test 5 Part 4")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("A | B + C => E", &nodes));
+		rules.add(Rule("(F | G) + H => E", &nodes));
+		Query query("?E", &nodes);
+		string facts("C");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+
+	SECTION("Test 5 Part 5")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("A | B + C => E", &nodes));
+		rules.add(Rule("(F | G) + H => E", &nodes));
+		Query query("?E", &nodes);
+		string facts("AC");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	
+	SECTION("Test 5 Part 6")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("A | B + C => E", &nodes));
+		rules.add(Rule("(F | G) + H => E", &nodes));
+		Query query("?E", &nodes);
+		string facts("BC");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	
+	SECTION("Test 5 Part 7")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("A | B + C => E", &nodes));
+		rules.add(Rule("(F | G) + H => E", &nodes));
+		Query query("?E", &nodes);
+		string facts("F");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	
+	SECTION("Test 5 Part 8")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("A | B + C => E", &nodes));
+		rules.add(Rule("(F | G) + H => E", &nodes));
+		Query query("?E", &nodes);
+		string facts("G");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	SECTION("Test 5 Part 9")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("A | B + C => E", &nodes));
+		rules.add(Rule("(F | G) + H => E", &nodes));
+		Query query("?E", &nodes);
+		string facts("H");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	SECTION("Test 5 Part 10")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("A | B + C => E", &nodes));
+		rules.add(Rule("(F | G) + H => E", &nodes));
+		Query query("?E", &nodes);
+		string facts("FH");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	SECTION("Test 5 Part 11")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("A | B + C => E", &nodes));
+		rules.add(Rule("(F | G) + H => E", &nodes));
+		Query query("?E", &nodes);
+		string facts("GH");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+
+	SECTION("Test 6 Part 1 negate")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B + !C=> A", &nodes));
+		Query query("?A", &nodes);
+		string facts("");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	SECTION("Test 6 Part 2")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B + !C=> A", &nodes));
+		Query query("?A", &nodes);
+		string facts("B");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	SECTION("Test 6 Part 3")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B + !C=> A", &nodes));
+		Query query("?A", &nodes);
+		string facts("C");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+	SECTION("Test 6 Part 4")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B + !C=> A", &nodes));
+		Query query("?A", &nodes);
+		string facts("BC");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+*/
 }
 
 TEST_CASE("RPN Calculator")
