@@ -48,7 +48,7 @@ string rpn_conv(string infixString)
 	vector<string> stack;
 
 	stackPos = -1;
-	string_split(infixString, &splitArray);
+	string_split(infixString, &splitArray, ' ');
 
 	for(string tempString : splitArray){
 		if (isnumber(tempString))

@@ -19,6 +19,15 @@ CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o
  ../src/main/models/Rule.h
  ../src/main/models/Rules.h
  /goinfre/mmayibo/projects/expertsystem/src/main/utils/rpn_conv.cpp
+CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o
+ ../inc/expertsystem.hpp
+ ../src/main/engine/InferenceEngine.h
+ ../src/main/models/Node.h
+ ../src/main/models/Nodes.h
+ ../src/main/models/Query.h
+ ../src/main/models/Rule.h
+ ../src/main/models/Rules.h
+ /goinfre/mmayibo/projects/expertsystem/src/main/utils/run_program.cpp
 CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o
  ../inc/expertsystem.hpp
  ../src/main/engine/InferenceEngine.h

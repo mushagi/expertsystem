@@ -122,6 +122,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named expertsystem
+
+# Build rule for target.
+expertsystem: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 expertsystem
+.PHONY : expertsystem
+
+# fast build rule for target.
+expertsystem/fast:
+	$(MAKE) -f CMakeFiles/expertsystem.dir/build.make CMakeFiles/expertsystem.dir/build
+.PHONY : expertsystem/fast
+
+#=============================================================================
 # Target rules for targets named unit_tests
 
 # Build rule for target.
@@ -146,19 +159,6 @@ expert_system_classes: cmake_check_build_system
 expert_system_classes/fast:
 	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/build
 .PHONY : expert_system_classes/fast
-
-#=============================================================================
-# Target rules for targets named expertsystem
-
-# Build rule for target.
-expertsystem: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 expertsystem
-.PHONY : expertsystem
-
-# fast build rule for target.
-expertsystem/fast:
-	$(MAKE) -f CMakeFiles/expertsystem.dir/build.make CMakeFiles/expertsystem.dir/build
-.PHONY : expertsystem/fast
 
 src/main/main.o: src/main/main.cpp.o
 
@@ -241,6 +241,33 @@ src/main/utils/rpn_conv.cpp.s:
 	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.s
 .PHONY : src/main/utils/rpn_conv.cpp.s
 
+src/main/utils/run_program.o: src/main/utils/run_program.cpp.o
+
+.PHONY : src/main/utils/run_program.o
+
+# target to build an object file
+src/main/utils/run_program.cpp.o:
+	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o
+.PHONY : src/main/utils/run_program.cpp.o
+
+src/main/utils/run_program.i: src/main/utils/run_program.cpp.i
+
+.PHONY : src/main/utils/run_program.i
+
+# target to preprocess a source file
+src/main/utils/run_program.cpp.i:
+	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.i
+.PHONY : src/main/utils/run_program.cpp.i
+
+src/main/utils/run_program.s: src/main/utils/run_program.cpp.s
+
+.PHONY : src/main/utils/run_program.s
+
+# target to generate assembly for a file
+src/main/utils/run_program.cpp.s:
+	$(MAKE) -f CMakeFiles/expert_system_classes.dir/build.make CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.s
+.PHONY : src/main/utils/run_program.cpp.s
+
 src/main/utils/tools.o: src/main/utils/tools.cpp.o
 
 .PHONY : src/main/utils/tools.o
@@ -303,10 +330,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... test"
-	@echo "... unit_tests"
-	@echo "... expert_system_classes"
 	@echo "... rebuild_cache"
 	@echo "... expertsystem"
+	@echo "... unit_tests"
+	@echo "... expert_system_classes"
 	@echo "... src/main/main.o"
 	@echo "... src/main/main.i"
 	@echo "... src/main/main.s"
@@ -316,6 +343,9 @@ help:
 	@echo "... src/main/utils/rpn_conv.o"
 	@echo "... src/main/utils/rpn_conv.i"
 	@echo "... src/main/utils/rpn_conv.s"
+	@echo "... src/main/utils/run_program.o"
+	@echo "... src/main/utils/run_program.i"
+	@echo "... src/main/utils/run_program.s"
 	@echo "... src/main/utils/tools.o"
 	@echo "... src/main/utils/tools.i"
 	@echo "... src/main/utils/tools.s"

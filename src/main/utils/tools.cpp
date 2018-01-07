@@ -8,7 +8,7 @@ string eraseAllWhiteSpaces(string str) {
 	return (str);
 }
 
-int string_split(string str, vector<string> *splitArray)
+int string_split(string str, vector<string> *splitArray, char c)
 {
   int pos;
   int endPos;
@@ -17,13 +17,13 @@ int string_split(string str, vector<string> *splitArray)
   if (str.size() == 0)
     return 0;
   pos = 0;
-  endPos = str.find(' ', pos);
+  endPos = str.find(c, pos);
   while(endPos > 0)
   {
     tempString = str.substr(pos, endPos - pos);
     splitArray->push_back(tempString);
     pos = endPos + 1;
-    endPos = str.find(' ', pos);
+    endPos = str.find(c, pos);
   }
   tempString = str.substr(pos, str.size());
   splitArray->push_back(tempString);

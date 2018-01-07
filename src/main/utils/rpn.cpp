@@ -46,7 +46,7 @@ int rpnCalculater(string rpnString)
   int result;
   vector<string> splitArray;
   stackPos = -1;
-  string_split(rpnString, &splitArray);
+  string_split(rpnString, &splitArray, ' ');
   for(int i = 0; i < 100; i++)
     stack[i] = 0;
   for (string tempString : splitArray)

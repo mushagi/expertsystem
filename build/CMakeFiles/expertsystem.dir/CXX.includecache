@@ -57,8 +57,14 @@ expertsystem.hpp
 ../src/main/models/expertsystem.hpp
 
 /goinfre/mmayibo/projects/expertsystem/src/main/main.cpp
-iostream
--
 expertsystem.hpp
 /goinfre/mmayibo/projects/expertsystem/src/main/expertsystem.hpp
+iostream
+-
+string
+-
+fstream
+-
+vector
+-
 

@@ -6,7 +6,7 @@
 /*   By: mmayibo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 19:42:24 by mmayibo           #+#    #+#             */
-/*   Updated: 2018/01/06 15:27:23 by mmayibo          ###   ########.fr       */
+/*   Updated: 2018/01/07 12:33:58 by mmayibo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@
 //int validate_query(vector<Node> nodes, vector<Rule> rules, Query query);
 string eraseAllWhiteSpaces(string str);
 int rpnCalculater(string rpnString);
-int string_split(string str, vector<string> *splitArray); 
+int string_split(string str, vector<string> *splitArray, char c); 
 int isnumber(string str);
 string rpn_conv(string infixString);
+void run_program(string content);
 #endif

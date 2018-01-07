@@ -90,6 +90,7 @@ expertsystem_EXTERNAL_OBJECTS =
 
 ../bin/expertsystem: CMakeFiles/expertsystem.dir/src/main/main.cpp.o
 ../bin/expertsystem: CMakeFiles/expertsystem.dir/build.make
+../bin/expertsystem: ../lib/libexpert_system_classes.a
 ../bin/expertsystem: CMakeFiles/expertsystem.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/goinfre/mmayibo/projects/expertsystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/expertsystem"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/expertsystem.dir/link.txt --verbose=$(VERBOSE)

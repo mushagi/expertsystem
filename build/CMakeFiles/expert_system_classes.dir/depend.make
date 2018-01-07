@@ -19,6 +19,15 @@ CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o: ../src/main/
 CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o: ../src/main/models/Rules.h
 CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o: ../src/main/utils/rpn_conv.cpp
 
+CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o: ../inc/expertsystem.hpp
+CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o: ../src/main/engine/InferenceEngine.h
+CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o: ../src/main/models/Node.h
+CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o: ../src/main/models/Nodes.h
+CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o: ../src/main/models/Query.h
+CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o: ../src/main/models/Rule.h
+CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o: ../src/main/models/Rules.h
+CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o: ../src/main/utils/run_program.cpp
+
 CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o: ../inc/expertsystem.hpp
 CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o: ../src/main/engine/InferenceEngine.h
 CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o: ../src/main/models/Node.h

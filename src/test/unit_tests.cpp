@@ -203,6 +203,95 @@ TEST_CASE("testing inference engine")
 		REQUIRE(engine.getResults() == "C=FALSE\n");
 	}
 
+	SECTION("Test negation")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("!A+!B=>!C", &nodes));
+		Query query("?C", &nodes);
+		string facts("A");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "A=TRUE\nF=TRUE\nK=TRUE\nP=TRUE\n");
+	}
+
+	SECTION("Test 1 Part 1")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B => A", &nodes));
+		rules.add(Rule("D + E => B ", &nodes));
+		rules.add(Rule("G + H => F", &nodes));
+		rules.add(Rule("I + J => G", &nodes));
+		rules.add(Rule("G => H", &nodes));
+		rules.add(Rule("L + M => K", &nodes));
+		rules.add(Rule("O + P => L + N", &nodes));
+		rules.add(Rule("N => M", &nodes));
+		Query query("?AFKP", &nodes);
+		string facts("DEIJOP");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "A=TRUE\nF=TRUE\nK=TRUE\nP=TRUE\n");
+	}
+	SECTION("Test 1 Part 1")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B => A", &nodes));
+		rules.add(Rule("D + E => B ", &nodes));
+		rules.add(Rule("G + H => F", &nodes));
+		rules.add(Rule("I + J => G", &nodes));
+		rules.add(Rule("G => H", &nodes));
+		rules.add(Rule("L + M => K", &nodes));
+		rules.add(Rule("O + P => L + N", &nodes));
+		rules.add(Rule("N => M", &nodes));
+		Query query("?AFKP", &nodes);
+		string facts("DEIJOP");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "A=TRUE\nF=TRUE\nK=TRUE\nP=TRUE\n");
+	}
+	SECTION("Test 1 Part 1")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B => A", &nodes));
+		rules.add(Rule("D + E => B ", &nodes));
+		rules.add(Rule("G + H => F", &nodes));
+		rules.add(Rule("I + J => G", &nodes));
+		rules.add(Rule("G => H", &nodes));
+		rules.add(Rule("L + M => K", &nodes));
+		rules.add(Rule("O + P => L + N", &nodes));
+		rules.add(Rule("N => M", &nodes));
+		Query query("?AFKP", &nodes);
+		string facts("DEIJOP");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "A=TRUE\nF=TRUE\nK=TRUE\nP=TRUE\n");
+	}
+	SECTION("Test 1 Part 1")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("B => A", &nodes));
+		rules.add(Rule("D + E => B ", &nodes));
+		rules.add(Rule("G + H => F", &nodes));
+		rules.add(Rule("I + J => G", &nodes));
+		rules.add(Rule("G => H", &nodes));
+		rules.add(Rule("L + M => K", &nodes));
+		rules.add(Rule("O + P => L + N", &nodes));
+		rules.add(Rule("N => M", &nodes));
+		Query query("?AFKP", &nodes);
+		string facts("DEIJOP");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "A=TRUE\nF=TRUE\nK=TRUE\nP=TRUE\n");
+	}
 	SECTION("Test 1 Part 1")
 	{
 		Nodes nodes;

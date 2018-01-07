@@ -41,7 +41,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/expertsystem.dir/DependInfo.cmake"
   "CMakeFiles/unit_tests.dir/DependInfo.cmake"
   "CMakeFiles/expert_system_classes.dir/DependInfo.cmake"
-  "CMakeFiles/expertsystem.dir/DependInfo.cmake"
   )

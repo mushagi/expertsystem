@@ -8,14 +8,16 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./../bin)
 set(SOURCE_FILES ./src/main/main.cpp)
 INCLUDE_DIRECTORIES(inc)
 
+add_library(expert_system_classes src/main/utils/tools.cpp
+  src/main/utils/rpn.cpp src/main/utils/rpn_conv.cpp src/main/utils/rpn.cpp src/main/utils/run_program.cpp) 
+
 add_executable(expertsystem ${SOURCE_FILES})
 target_include_directories(expertsystem PRIVATE inc)
+target_link_libraries(expertsystem expert_system_classes)
 
 # add the CMakeFile that defines catch
 
 # Add an library for the example classes
-add_library(expert_system_classes src/main/utils/tools.cpp
-  src/main/utils/rpn.cpp src/main/utils/rpn_conv.cpp) 
 #############################################
 #Unit tests
 
