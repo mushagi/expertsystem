@@ -90,7 +90,7 @@ class  InferenceEngine{
 				  }
 
 				  string equation = getEquation(rule.getLeftSide(), tempNodes);
-				  cout<<rule.getLeftSide()<<" becomes {"<<equation<<"}| res =["<<rpn_conv(equation)<<"]"<<endl;
+				  cout<<rule.getLeftSide()<<" becomes ["<<equation<<"]"<<endl;
 				  return rpnCalculater(rpn_conv(equation));
 			  }
 	private : string getEquation(string rule, Nodes tempNodes)

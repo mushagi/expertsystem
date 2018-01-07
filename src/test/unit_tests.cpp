@@ -116,7 +116,7 @@ TEST_CASE("Query class")
 		query.getNodes().front()->setStatus(4);
 		REQUIRE(query.getNodes().front()->getStatus() == 4);
 		REQUIRE(nodes.getNodes()->front().getStatus() == 4);
-		
+
 		REQUIRE(query.getNodeByChar('A')->getStatus() == 4);
 		//query
 	}
@@ -169,7 +169,6 @@ TEST_CASE("Testing nodes class")
 
 TEST_CASE("testing inference engine")
 {
-/*
 	SECTION("testing initial updated facts"){
 		Nodes nodes;
 		Rules rules;
@@ -191,7 +190,6 @@ TEST_CASE("testing inference engine")
 		engine.execute();
 		REQUIRE(engine.getResults() == "C=FALSE\n");
 	}
-	
 	SECTION("simple test")
 	{
 		Nodes nodes;
@@ -204,8 +202,8 @@ TEST_CASE("testing inference engine")
 		engine.execute();
 		REQUIRE(engine.getResults() == "C=FALSE\n");
 	}
-	*/
-/*	SECTION("Test 1 Part 1")
+
+	SECTION("Test 1 Part 1")
 	{
 		Nodes nodes;
 		Rules rules;
@@ -222,9 +220,8 @@ TEST_CASE("testing inference engine")
 		string facts("DEIJOP");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=TRUE\nF=TRUE\nK=TRUE\nP=TRUE\n");
 	}
-
 	SECTION("Test 1 Part 2")
 	{
 		Nodes nodes;
@@ -242,10 +239,8 @@ TEST_CASE("testing inference engine")
 		string facts("DEIJP");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=TRUE\nF=TRUE\nK=FALSE\nP=TRUE\n");
 	}
-
-
 
 	SECTION("Test 2 Part 1 OR")
 	{
@@ -259,7 +254,7 @@ TEST_CASE("testing inference engine")
 		string facts("");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=FALSE\n");
 	}
 
 	SECTION("Test 2 Part 2")
@@ -274,9 +269,9 @@ TEST_CASE("testing inference engine")
 		string facts("D");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=TRUE\n");
 	}
-	
+
 	SECTION("Test 2 Part 3")
 	{
 		Nodes nodes;
@@ -289,9 +284,9 @@ TEST_CASE("testing inference engine")
 		string facts("E");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=TRUE\n");
 	}
-	
+
 	SECTION("Test 2 Part 3")
 	{
 		Nodes nodes;
@@ -304,7 +299,7 @@ TEST_CASE("testing inference engine")
 		string facts("DE");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=TRUE\n");
 	}
 
 
@@ -320,7 +315,7 @@ TEST_CASE("testing inference engine")
 		string facts("");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=FALSE\n");
 	}
 
 	SECTION("Test 3 Part 2")
@@ -335,9 +330,9 @@ TEST_CASE("testing inference engine")
 		string facts("D");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=TRUE\n");
 	}
-	
+
 
 	SECTION("Test 3 Part 3")
 	{
@@ -351,9 +346,9 @@ TEST_CASE("testing inference engine")
 		string facts("E");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=TRUE\n");
 	}
-	
+
 	SECTION("Test 3 Part 3")
 	{
 		Nodes nodes;
@@ -366,9 +361,8 @@ TEST_CASE("testing inference engine")
 		string facts("DE");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=FALSE\n");
 	}
-	*/
 
 	SECTION("Test 4 Part 1 contradicitons")
 	{
@@ -381,7 +375,7 @@ TEST_CASE("testing inference engine")
 		string facts("");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=FALSE\n");
 	}
 	SECTION("Test 4 Part 2")
 	{
@@ -394,7 +388,7 @@ TEST_CASE("testing inference engine")
 		string facts("B");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=TRUE\n");
 	}
 	SECTION("Test 4 Part 3")
 	{
@@ -407,7 +401,7 @@ TEST_CASE("testing inference engine")
 		string facts("C");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=TRUE\n");
 	}
 	SECTION("Test 4 Part 4")
 	{
@@ -420,9 +414,8 @@ TEST_CASE("testing inference engine")
 		string facts("BC");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=TRUE\n");
 	}
-	/*
 
 	SECTION("Test 5 Part 1")
 	{
@@ -435,7 +428,7 @@ TEST_CASE("testing inference engine")
 		string facts("");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "E=FALSE\n");
 	}
 
 	SECTION("Test 5 Part 2")
@@ -449,9 +442,9 @@ TEST_CASE("testing inference engine")
 		string facts("A");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "E=TRUE\n");
 	}
-	
+
 	SECTION("Test 5 Part 3")
 	{
 		Nodes nodes;
@@ -463,7 +456,7 @@ TEST_CASE("testing inference engine")
 		string facts("B");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "E=FALSE\n");
 	}
 
 
@@ -478,7 +471,7 @@ TEST_CASE("testing inference engine")
 		string facts("C");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "E=FALSE\n");
 	}
 
 	SECTION("Test 5 Part 5")
@@ -492,9 +485,9 @@ TEST_CASE("testing inference engine")
 		string facts("AC");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "E=TRUE\n");
 	}
-	
+
 	SECTION("Test 5 Part 6")
 	{
 		Nodes nodes;
@@ -506,9 +499,9 @@ TEST_CASE("testing inference engine")
 		string facts("BC");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "E=TRUE\n");
 	}
-	
+
 	SECTION("Test 5 Part 7")
 	{
 		Nodes nodes;
@@ -520,9 +513,9 @@ TEST_CASE("testing inference engine")
 		string facts("F");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "E=FALSE\n");
 	}
-	
+
 	SECTION("Test 5 Part 8")
 	{
 		Nodes nodes;
@@ -534,7 +527,7 @@ TEST_CASE("testing inference engine")
 		string facts("G");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "E=FALSE\n");
 	}
 	SECTION("Test 5 Part 9")
 	{
@@ -547,7 +540,7 @@ TEST_CASE("testing inference engine")
 		string facts("H");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "E=FALSE\n");
 	}
 	SECTION("Test 5 Part 10")
 	{
@@ -560,7 +553,7 @@ TEST_CASE("testing inference engine")
 		string facts("FH");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "E=TRUE\n");
 	}
 	SECTION("Test 5 Part 11")
 	{
@@ -573,7 +566,7 @@ TEST_CASE("testing inference engine")
 		string facts("GH");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "E=TRUE\n");
 	}
 
 	SECTION("Test 6 Part 1 negate")
@@ -586,7 +579,7 @@ TEST_CASE("testing inference engine")
 		string facts("");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=FALSE\n");
 	}
 	SECTION("Test 6 Part 2")
 	{
@@ -598,7 +591,7 @@ TEST_CASE("testing inference engine")
 		string facts("B");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=TRUE\n");
 	}
 	SECTION("Test 6 Part 3")
 	{
@@ -610,7 +603,7 @@ TEST_CASE("testing inference engine")
 		string facts("C");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=FALSE\n");
 	}
 	SECTION("Test 6 Part 4")
 	{
@@ -622,9 +615,8 @@ TEST_CASE("testing inference engine")
 		string facts("BC");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "C=FALSE\n");
+		REQUIRE(engine.getResults() == "A=FALSE\n");
 	}
-*/
 }
 
 TEST_CASE("RPN Calculator")
