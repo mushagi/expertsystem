@@ -5,6 +5,8 @@
 using namespace std;
 
 string eraseAllWhiteSpaces(string str);
+void exit_with_error(string errorString);
+int is_op(char c);
 class Rule{
 	public : string rule;
 	private : string rightSide;
@@ -14,14 +16,14 @@ class Rule{
 	private : int ruleIndex;
 	public : Rule(string rule){
 				 this->rule = rule;
-				 sanitiseRule();
+				 sanitiseAndValidateRule();
 				 initSides();
 			 }
 
 	public : Rule(string rule, Nodes *nodes){
 				 this->rule = rule;
 				 this->nodes= nodes;
-				 sanitiseRule();
+				 sanitiseAndValidateRule();
 				 initNodes();
 				 initSides();
 			 }
@@ -38,10 +40,28 @@ class Rule{
 				  }
 
 			  }
-	private: void sanitiseRule()
+	private: void sanitiseAndValidateRule()
 			 {
+         int equalsFlag = 0;
+         int greaterThanFlag = 0;
+
 				 rule = eraseAllWhiteSpaces(rule);
 				 getRidOfComments();
+         for (char &c : rule)
+         {
+           if (!isalpha(c) && c != '=' && c != '>' && c != '!' && !is_op(c) && c != ')' && c != '(')
+             exit_with_error("The Rule "  + rule + " is invalid symbol");
+           if (c == '!' && !isalpha(*(&c + 1)))
+             exit_with_error("The Rule "  + rule + " is invalid, no operand after negate sign");
+           if (c == '=' && *(&c + 1) != '>')
+             exit_with_error("The Rule "  + rule + " is invalid, no > after = ");
+           if (c == '=') equalsFlag++;
+           if (c == '>')greaterThanFlag++;
+         }
+         if (equalsFlag != 1)
+           exit_with_error("The Rule "  + rule + " has invalid number of equal sign");
+         if (greaterThanFlag != 1)
+           exit_with_error("The Rule "  + rule + " has invalid number of greater than sign ");
 			 }
 	private : void getRidOfComments(){
 				  rule = rule.substr(0, rule.find('#'));

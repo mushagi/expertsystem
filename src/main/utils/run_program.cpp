@@ -7,6 +7,8 @@ void init(string content, Rules *rules, Nodes *nodes, string  *query, string *fa
 	string_split(content, &stringArray, '\n');
 	for (string temp : stringArray)
 	{
+    //TODO
+    //invalid fact, invalid query
 		if(isalpha(temp[0]) || temp[0] == '!')
 			rules->add(Rule(temp, nodes));
 		else if (temp[0] == '=')

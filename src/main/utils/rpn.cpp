@@ -22,10 +22,6 @@ int do_op(int val1, int val2, char op)
   return 0;
 }
 
-int is_op(char c)
-{
-  return(c == '+' || c == '-' || c == '/' || c == '*' || c == '^' || c == '%' || c == '^' || c == '&' || c == '|');
-}
 void push(int *stack, int nbr, int *stackPos)
 {
   stack[++*stackPos] = nbr;

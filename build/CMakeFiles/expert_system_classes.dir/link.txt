@@ -1,2 +1,2 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc ../lib/libexpert_system_classes.a  CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.o CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib ../lib/libexpert_system_classes.a
+/usr/bin/ar qc ../lib/libexpert_system_classes.a  CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.o CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o CMakeFiles/expert_system_classes.dir/src/main/utils/error_handling.cpp.o
+/usr/bin/ranlib ../lib/libexpert_system_classes.a

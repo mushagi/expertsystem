@@ -9,7 +9,8 @@ set(SOURCE_FILES ./src/main/main.cpp)
 INCLUDE_DIRECTORIES(inc)
 
 add_library(expert_system_classes src/main/utils/tools.cpp
-  src/main/utils/rpn.cpp src/main/utils/rpn_conv.cpp src/main/utils/rpn.cpp src/main/utils/run_program.cpp) 
+  src/main/utils/rpn.cpp src/main/utils/rpn_conv.cpp src/main/utils/rpn.cpp
+  src/main/utils/run_program.cpp src/main/utils/error_handling.cpp) 
 
 add_executable(expertsystem ${SOURCE_FILES})
 target_include_directories(expertsystem PRIVATE inc)

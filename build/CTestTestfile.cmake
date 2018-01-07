@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /goinfre/mmayibo/projects/expertsystem
-# Build directory: /goinfre/mmayibo/projects/expertsystem/build
+# Source directory: /home/vador/projects/expertsystem
+# Build directory: /home/vador/projects/expertsystem/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

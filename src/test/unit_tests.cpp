@@ -213,7 +213,7 @@ TEST_CASE("testing inference engine")
 		string facts("A");
 		InferenceEngine engine(rules, nodes, query, facts);
 		engine.execute();
-		REQUIRE(engine.getResults() == "A=TRUE\nF=TRUE\nK=TRUE\nP=TRUE\n");
+		REQUIRE(engine.getResults() == "C=FALSE\n");
 	}
 
 	SECTION("Test 1 Part 1")

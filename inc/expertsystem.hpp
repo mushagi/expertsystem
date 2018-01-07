@@ -30,4 +30,7 @@ int string_split(string str, vector<string> *splitArray, char c);
 int isnumber(string str);
 string rpn_conv(string infixString);
 void run_program(string content);
+void exit_with_error(string errorString);
+
+int is_op(char c);
 #endif

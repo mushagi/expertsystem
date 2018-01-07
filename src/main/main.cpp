@@ -13,9 +13,13 @@ int main(int ac, char **av)
 	string buffer;
 	string content;
 
+  if (ac != 2)
+    exit_with_error("Usage : [filename]");
 	fName = av[1];
 	rFile.open(fName);
-	while (getline(rFile, buffer)){
+	if (!rFile)
+    exit_with_error("File does not exit");
+  while (getline(rFile, buffer)){
 		buffer = eraseAllWhiteSpaces(buffer);
 		if (buffer.size() > 0){
 			content += buffer;

@@ -47,3 +47,8 @@ int isnumber(string str)
 
   return 1;
 }
+
+int is_op(char c)
+{
+    return(c == '+' || c == '-' || c == '/' || c == '*' || c == '^' || c == '%' || c == '^' || c == '&' || c == '|');
+}
