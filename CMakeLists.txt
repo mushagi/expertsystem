@@ -14,7 +14,8 @@ target_include_directories(expertsystem PRIVATE inc)
 # add the CMakeFile that defines catch
 
 # Add an library for the example classes
-add_library(expert_system_classes src/main/utils/tools.cpp) 
+add_library(expert_system_classes src/main/utils/tools.cpp
+  src/main/utils/rpn.cpp src/main/utils/rpn_conv.cpp) 
 #############################################
 #Unit tests
 

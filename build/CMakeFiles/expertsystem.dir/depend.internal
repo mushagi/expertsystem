@@ -5,6 +5,8 @@ CMakeFiles/expertsystem.dir/src/main/main.cpp.o
  ../inc/expertsystem.hpp
  ../src/main/engine/InferenceEngine.h
  ../src/main/models/Node.h
+ ../src/main/models/Nodes.h
  ../src/main/models/Query.h
+ ../src/main/models/Rule.h
  ../src/main/models/Rules.h
  /goinfre/mmayibo/projects/expertsystem/src/main/main.cpp

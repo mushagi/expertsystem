@@ -4,8 +4,12 @@ string eraseAllWhiteSpaces(string str);
 class Query{
 	private:string query;
 	private:vector<Node*> nodes;
+
 	private : vector<char> querySymbols;
-	public : Query(string query, vector<Node*> *allNodes){
+	public : Query()
+			 {
+			 }
+	public : Query(string query, Nodes *allNodes){
 				 this->query = query;
 				 init(allNodes);
 			 }
@@ -16,7 +20,7 @@ class Query{
 	public: vector<Node*> getNodes(){
 				return (nodes);
 			}
-	private :void init(vector<Node*> *allNodes)
+	private :void init(Nodes *allNodes)
 			 {
 				 query = eraseAllWhiteSpaces(query);
 				 if (!isValidQuery(query))
@@ -37,15 +41,23 @@ class Query{
 				  }
 			  }
 
-	private: void updateQueryNodes(vector <Node*> *allNodes){
+
+	public : Node *getNodeByChar(char c)
+			 {
+				 for (Node *node : nodes)
+					 if(node->getSymbol() == c)
+						 return (node);
+				 return (nullptr);
+			 }
+	private: void updateQueryNodes(Nodes *allNodes){
 				 for (char c : querySymbols){
-					 for (Node *node : *allNodes) {
-						 if (node->getSymbol() == c)
+					 for (Node &node : *allNodes->getNodes()) {
+						 if (node.getSymbol() == c)
 						 {
-							 nodes.push_back(node);
-							 allNodes->front()->setReason("changed");
+							 nodes.push_back(&node);
 						 }
 					 }
 				 }
 			 }
+
 };

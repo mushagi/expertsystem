@@ -1,4 +1,8 @@
+#ifndef NODE_H
+#define NODE_H
+
 #include "expertsystem.hpp"
+
 using namespace std;
 class Node{
 	private : vector<int> listOfIndex;
@@ -35,4 +39,10 @@ class Node{
 	public : string getReason(){
 				 return (reason);
 			 }
+  public : void addRule(int index)
+		   {
+			   listOfIndex.push_back(index);
+           }
 };
+
+#endif

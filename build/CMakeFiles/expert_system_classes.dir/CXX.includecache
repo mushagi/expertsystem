@@ -19,6 +19,10 @@ stdio.h
 -
 ../src/main/models/Node.h
 ../src/main/models/Node.h
+../src/main/models/Nodes.h
+../src/main/models/Nodes.h
+../src/main/models/Rule.h
+../src/main/models/Rule.h
 ../src/main/models/Rules.h
 ../src/main/models/Rules.h
 ../src/main/models/Query.h
@@ -34,21 +38,31 @@ expertsystem.hpp
 expertsystem.hpp
 ../src/main/models/expertsystem.hpp
 
+../src/main/models/Nodes.h
+expertsystem.hpp
+../src/main/models/expertsystem.hpp
+
 ../src/main/models/Query.h
 ../../../inc/expertsystem.hpp
 ../inc/expertsystem.hpp
 
-../src/main/models/Rules.h
+../src/main/models/Rule.h
 expertsystem.hpp
 ../src/main/models/expertsystem.hpp
-algorithm
--
-iostream
--
-string
--
-vector
--
+
+../src/main/models/Rules.h
+Rule.h
+../src/main/models/Rule.h
+expertsystem.hpp
+../src/main/models/expertsystem.hpp
+
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/rpn.cpp
+expertsystem.hpp
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/expertsystem.hpp
+
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/rpn_conv.cpp
+expertsystem.hpp
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/expertsystem.hpp
 
 /goinfre/mmayibo/projects/expertsystem/src/main/utils/tools.cpp
 expertsystem.hpp
