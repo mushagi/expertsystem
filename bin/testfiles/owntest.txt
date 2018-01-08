@@ -1,4 +1,14 @@
-AB=>!C
+A | B + C => E
+(F | G) + H => E            
+B => A
+D + E => B
+G + H => F
+I + J => G
+G => H
+L + M => K
+O + P => L + N
+N => M
+?E
+=A
 
-=AB
-?C
+

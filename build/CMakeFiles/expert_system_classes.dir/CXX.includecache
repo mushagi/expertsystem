@@ -56,25 +56,25 @@ Rule.h
 expertsystem.hpp
 ../src/main/models/expertsystem.hpp
 
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/error_handling.cpp
+/home/vador/projects/expertsystem/src/main/utils/error_handling.cpp
 expertsystem.hpp
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/expertsystem.hpp
+/home/vador/projects/expertsystem/src/main/utils/expertsystem.hpp
 
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/rpn.cpp
+/home/vador/projects/expertsystem/src/main/utils/rpn.cpp
 expertsystem.hpp
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/expertsystem.hpp
+/home/vador/projects/expertsystem/src/main/utils/expertsystem.hpp
 
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/rpn_conv.cpp
+/home/vador/projects/expertsystem/src/main/utils/rpn_conv.cpp
 expertsystem.hpp
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/expertsystem.hpp
+/home/vador/projects/expertsystem/src/main/utils/expertsystem.hpp
 
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/run_program.cpp
+/home/vador/projects/expertsystem/src/main/utils/run_program.cpp
 expertsystem.hpp
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/expertsystem.hpp
+/home/vador/projects/expertsystem/src/main/utils/expertsystem.hpp
 
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/tools.cpp
+/home/vador/projects/expertsystem/src/main/utils/tools.cpp
 expertsystem.hpp
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/expertsystem.hpp
+/home/vador/projects/expertsystem/src/main/utils/expertsystem.hpp
 algorithm
 -
 unistd.h

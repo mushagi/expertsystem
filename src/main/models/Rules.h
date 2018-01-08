@@ -22,6 +22,13 @@ class Rules{
 			 {
 				 return rules;
 			 }
+  public : void  updateRule()
+           {
+             for (Rule rule : rules)
+             {
+               rule.setRuleIndex(10);
+             }
+           }
 };
 
 #endif

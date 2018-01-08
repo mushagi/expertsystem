@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/error_handling.cpp" "/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/utils/error_handling.cpp.o"
-  "/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/rpn.cpp" "/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.o"
-  "/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/rpn_conv.cpp" "/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o"
-  "/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/run_program.cpp" "/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o"
-  "/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/src/main/utils/tools.cpp" "/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o"
+  "/home/vador/projects/expertsystem/src/main/utils/error_handling.cpp" "/home/vador/projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/utils/error_handling.cpp.o"
+  "/home/vador/projects/expertsystem/src/main/utils/rpn.cpp" "/home/vador/projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/utils/rpn.cpp.o"
+  "/home/vador/projects/expertsystem/src/main/utils/rpn_conv.cpp" "/home/vador/projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/utils/rpn_conv.cpp.o"
+  "/home/vador/projects/expertsystem/src/main/utils/run_program.cpp" "/home/vador/projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/utils/run_program.cpp.o"
+  "/home/vador/projects/expertsystem/src/main/utils/tools.cpp" "/home/vador/projects/expertsystem/build/CMakeFiles/expert_system_classes.dir/src/main/utils/tools.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

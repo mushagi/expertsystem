@@ -1,6 +1,6 @@
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/build/CMakeFiles/edit_cache.dir
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/build/CMakeFiles/test.dir
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/build/CMakeFiles/rebuild_cache.dir
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/build/CMakeFiles/expertsystem.dir
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/build/CMakeFiles/unit_tests.dir
-/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/build/CMakeFiles/expert_system_classes.dir
+/home/vador/projects/expertsystem/build/CMakeFiles/edit_cache.dir
+/home/vador/projects/expertsystem/build/CMakeFiles/test.dir
+/home/vador/projects/expertsystem/build/CMakeFiles/unit_tests.dir
+/home/vador/projects/expertsystem/build/CMakeFiles/expert_system_classes.dir
+/home/vador/projects/expertsystem/build/CMakeFiles/rebuild_cache.dir
+/home/vador/projects/expertsystem/build/CMakeFiles/expertsystem.dir

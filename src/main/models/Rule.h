@@ -14,15 +14,25 @@ class Rule{
 	private: vector<char> leftSideNodes;
 	private: Nodes *nodes;
 	private : int ruleIndex;
+  public : int read;
+  private : string what;
 	public : Rule(string rule){
 				 this->rule = rule;
 				 sanitiseAndValidateRule();
 				 initSides();
 			 }
-
+  public : void setWhat(string what)
+           {
+             this->what = what;
+           }
+  public : string getWhat()
+           {
+             return what;
+           }
 	public : Rule(string rule, Nodes *nodes){
 				 this->rule = rule;
 				 this->nodes= nodes;
+         this->read = 0;
 				 sanitiseAndValidateRule();
 				 initNodes();
 				 initSides();
@@ -104,6 +114,21 @@ class Rule{
 			 {
 				 return leftSideNodes;
 			 }
+  public : int getRuleIndex()
+           {
+             return ruleIndex;
+           }
+  public : void setRead(int isRead)
+           {
+
+             this->read = 1;
+           }
+
+  public : int getRead()
+           {
+             return this->read;
+           }
+
 };
 
 
