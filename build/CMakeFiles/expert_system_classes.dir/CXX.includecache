@@ -56,25 +56,27 @@ Rule.h
 expertsystem.hpp
 ../src/main/models/expertsystem.hpp
 
-/home/vador/projects/expertsystem/src/main/utils/error_handling.cpp
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/error_handling.cpp
 expertsystem.hpp
-/home/vador/projects/expertsystem/src/main/utils/expertsystem.hpp
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/expertsystem.hpp
 
-/home/vador/projects/expertsystem/src/main/utils/rpn.cpp
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/rpn.cpp
 expertsystem.hpp
-/home/vador/projects/expertsystem/src/main/utils/expertsystem.hpp
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/expertsystem.hpp
 
-/home/vador/projects/expertsystem/src/main/utils/rpn_conv.cpp
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/rpn_conv.cpp
 expertsystem.hpp
-/home/vador/projects/expertsystem/src/main/utils/expertsystem.hpp
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/expertsystem.hpp
 
-/home/vador/projects/expertsystem/src/main/utils/run_program.cpp
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/run_program.cpp
 expertsystem.hpp
-/home/vador/projects/expertsystem/src/main/utils/expertsystem.hpp
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/expertsystem.hpp
 
-/home/vador/projects/expertsystem/src/main/utils/tools.cpp
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/tools.cpp
 expertsystem.hpp
-/home/vador/projects/expertsystem/src/main/utils/expertsystem.hpp
+/goinfre/mmayibo/projects/expertsystem/src/main/utils/expertsystem.hpp
 algorithm
+-
+unistd.h
 -
 

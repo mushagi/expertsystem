@@ -1,21 +1,28 @@
 #include "expertsystem.hpp"
 using namespace std;
-
+int brackets(char *s);
 void init(string content, Rules *rules, Nodes *nodes, string  *query, string *facts)
 {
 	vector<string> stringArray;
 	string_split(content, &stringArray, '\n');
+	bool factFound = false;
+	if (!brackets((char *) content.c_str()))
+		exit_with_error("invalid brackets");
 	for (string temp : stringArray)
 	{
-    //TODO
-    //invalid fact, invalid query
 		if(isalpha(temp[0]) || temp[0] == '!')
 			rules->add(Rule(temp, nodes));
 		else if (temp[0] == '=')
+		{
+			factFound = true;
 			*facts = &temp[1];
+		}
 		else if (temp[0] == '?')
 			*query = temp;
 	}
+
+	if (!factFound)
+		exit_with_error("there are no facts given");
 }
 
 void run_program(string content)

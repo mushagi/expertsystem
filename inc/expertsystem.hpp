@@ -6,7 +6,7 @@
 /*   By: mmayibo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 19:42:24 by mmayibo           #+#    #+#             */
-/*   Updated: 2018/01/07 12:33:58 by mmayibo          ###   ########.fr       */
+/*   Updated: 2018/01/08 10:52:19 by mmayibo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int isnumber(string str);
 string rpn_conv(string infixString);
 void run_program(string content);
 void exit_with_error(string errorString);
-
 int is_op(char c);
+int brackets(char *s);
 #endif

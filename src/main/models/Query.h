@@ -24,8 +24,7 @@ class Query{
 			 {
 				 query = eraseAllWhiteSpaces(query);
 				 if (!isValidQuery(query))
-					 throw invalid_argument(
-							 "invalid query" );
+					 exit_with_error("invalid query" );
 				 updateQuerySymbols();
 				 updateQueryNodes(allNodes);
 			 }

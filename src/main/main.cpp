@@ -14,7 +14,7 @@ int main(int ac, char **av)
 	string content;
 
   if (ac != 2)
-    exit_with_error("Usage : [filename]");
+    exit_with_error("Usage : expertsystem [filename]");
 	fName = av[1];
 	rFile.open(fName);
 	if (!rFile)
