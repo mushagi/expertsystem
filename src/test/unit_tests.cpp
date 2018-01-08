@@ -216,6 +216,34 @@ TEST_CASE("testing inference engine")
 		REQUIRE(engine.getResults() == "C=FALSE\n");
 	}
 
+	SECTION("contradiction")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("A => C", &nodes));
+		rules.add(Rule("A + B => !C", &nodes));
+		Query query("?C", &nodes);
+		string facts("AB");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+
+	SECTION("contradiction part 2")
+	{
+		Nodes nodes;
+		Rules rules;
+
+		rules.add(Rule("A => C", &nodes));
+		rules.add(Rule("A + B => C + !(C +D)", &nodes));
+		Query query("?C", &nodes);
+		string facts("AB");
+		InferenceEngine engine(rules, nodes, query, facts);
+		engine.execute();
+		REQUIRE(engine.getResults() == "C=FALSE\n");
+	}
+
 	SECTION("Test 1 Part 1")
 	{
 		Nodes nodes;
