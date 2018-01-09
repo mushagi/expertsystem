@@ -4,6 +4,7 @@
 
 using namespace std;
 
+int brackets(char *s);
 string eraseAllWhiteSpaces(string str);
 void exit_with_error(string errorString);
 int is_op(char c);
@@ -43,6 +44,9 @@ class Rule{
 	private : void initSides(){
 				  leftSide = rule.substr(0, rule.find('='));
 				  rightSide = rule.substr(rule.find('>') + 1);
+				  if (!brackets((char *) rightSide.c_str()) || !brackets((char *) leftSide.c_str()))
+					  exit_with_error("invalid brackets");
+
 				  for (Node node : *nodes->getNodes()){
 					  for (char c : leftSide)
 						  if (c == node.getSymbol())
