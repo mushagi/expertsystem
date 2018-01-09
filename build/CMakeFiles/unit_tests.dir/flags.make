@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/goinfre/mmayibo/projects/expertsystem/inc 
+CXX_INCLUDES = -I/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/inc 
 

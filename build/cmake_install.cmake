@@ -1,8 +1,8 @@
-# Install script for directory: /goinfre/mmayibo/projects/expertsystem
+# Install script for directory: /nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/goinfre/mmayibo/.brew")
+  set(CMAKE_INSTALL_PREFIX "/nfs/zfs-student-7/users/sletlape/.brew")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/goinfre/mmayibo/projects/expertsystem/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

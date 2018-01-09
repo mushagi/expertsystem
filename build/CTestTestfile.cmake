@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /goinfre/mmayibo/projects/expertsystem
-# Build directory: /goinfre/mmayibo/projects/expertsystem/build
+# Source directory: /nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem
+# Build directory: /nfs/zfs-student-7/users/sletlape/Documents/Projects/expertsystem/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
