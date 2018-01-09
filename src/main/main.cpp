@@ -12,13 +12,19 @@ int main(int ac, char **av)
 	string fName;
 	string buffer;
 	string content;
+	string ext;
+	int eStart;
 
   if (ac != 2)
     exit_with_error("Usage : expertsystem [filename]");
 	fName = av[1];
+	eStart = fName.find_last_of('.');
+	ext = fName.substr(eStart + 1);
+	if (ext != "txt")
+		exit_with_error("Input must be a *.txt file");
 	rFile.open(fName);
 	if (!rFile)
-    exit_with_error("File does not exit");
+    exit_with_error("File does not exist");
   while (getline(rFile, buffer)){
 		buffer = eraseAllWhiteSpaces(buffer);
 		if (buffer.size() > 0){
