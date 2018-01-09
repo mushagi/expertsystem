@@ -18,7 +18,7 @@ int main(int ac, char **av)
   if (ac != 2)
     exit_with_error("Usage : expertsystem [filename]");
 	fName = av[1];
-	eStart = fName.find('.');
+	eStart = fName.find_last_of('.');
 	ext = fName.substr(eStart + 1);
 	if (ext != "txt")
 		exit_with_error("Input must be a *.txt file");
