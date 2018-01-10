@@ -1,7 +1,0 @@
-A+B+C=>D
-
-
-D+C=>B
-F|B=>G
-B+!G=>F
-H+F=>A
